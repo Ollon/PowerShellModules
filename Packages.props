@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project>
+  <!--Implicit Package References-->
+  <ItemGroup>
+    <PackageVersion Include="ICSharpCode.NRefactory" Version="5.5.1" />
+    <PackageVersion Include="ICSharpCode.TextEditor" Version="3.2.1.6466" />
+    <PackageVersion Include="Microsoft.Management.Infrastructure" Version="[4.0.0]" />
+    <PackageVersion Include="Microsoft.Build" Version="[15.6.82]" />
+    <PackageVersion Include="Microsoft.PowerShell.Editor" Version="[3.0.0]" />
+    <PackageVersion Include="Microsoft.PowerShell.EditorServices" Version="[0.6.2.389]" />
+    <PackageVersion Include="Microsoft.PowerShell.5.ReferenceAssemblies" Version="[1.1.0]" />
+    <PackageVersion Include="Microsoft.VSSDK.BuildTools" Version="[15.6.170]" />
+    <PackageVersion Include="stdole" Version="[7.0.3302]" />
+    <PackageVersion Include="Microsoft.Build" Version="[15.6.82]" />
+    <PackageVersion Include="Microsoft.Build.Framework" Version="[15.6.82]" />
+    <PackageVersion Include="Microsoft.Tpl.Dataflow" Version="[4.5.24]" />
+    <PackageVersion Include="Microsoft.VisualStudio.ProjectSystem" Version="[15.3.224]" />
+    <PackageVersion Include="Microsoft.VisualStudio.Composition" Version="[15.8.55-alpha]" />
+    <PackageVersion Include="Microsoft.VisualStudio.Utilities" Version="[15.6.27413]" />
+    <PackageVersion Include="Microsoft.VisualStudio.Threading" Version="[15.6.46]" />
+    <PackageVersion Include="Microsoft.VisualStudio.Validation" Version="[15.3.32]" />
+    <PackageVersion Include="Microsoft.VisualStudio.Text.Data" Version="[15.6.27413]" />
+    <PackageVersion Include="Microsoft.VisualStudio.Text.Logic" Version="[15.6.27413]" />
+    <PackageVersion Include="Microsoft.VisualStudio.Text.UI" Version="[15.6.27413]" />
+    <PackageVersion Include="Microsoft.VisualStudio.Text.UI.Wpf" Version="[15.6.27413]" />
+    <PackageVersion Include="Microsoft.VisualStudio.TextManager.Interop" Version="[7.10.6071]" />
+    <PackageVersion Include="Microsoft.VisualStudio.TextManager.Interop.8.0" Version="[8.0.50728]" />
+    <PackageVersion Include="Microsoft.VisualStudio.TextManager.Interop.9.0" Version="[9.0.30730]" />
+    <PackageVersion Include="Microsoft.VisualStudio.TextManager.Interop.10.0" Version="[10.0.30320]" />
+    <PackageVersion Include="Microsoft.VisualStudio.TextManager.Interop.11.0" Version="[11.0.61031]" />
+    <PackageVersion Include="Microsoft.VisualStudio.TextManager.Interop.12.0" Version="[12.0.30111]" />
+    <PackageVersion Include="Microsoft.VisualStudio.TextTemplating.15.0" Version="[15.6.27413]" />
+    <PackageVersion Include="Microsoft.VisualStudio.TextTemplating.VSHost.15.0" Version="[15.6.27413]" />
+    <PackageVersion Include="Microsoft.VisualStudio.TextTemplating.Interfaces.15.0" Version="[15.6.27413]" />
+    <PackageVersion Include="Microsoft.VisualStudio.OLE.Interop" Version="[7.10.6071]" />
+    <PackageVersion Include="Microsoft.VisualStudio.Shell.15.0" Version="[15.6.27413]" />
+    <PackageVersion Include="Microsoft.VisualStudio.Shell.Embeddable" Version="[15.5.27130]" />
+    <PackageVersion Include="Microsoft.VisualStudio.Shell.Framework" Version="[15.6.27413]" />
+    <PackageVersion Include="Microsoft.VisualStudio.Shell.Design" Version="[15.6.27413]" />
+    <PackageVersion Include="Microsoft.VisualStudio.Shell.Interop" Version="[7.10.6072]" />
+    <PackageVersion Include="Microsoft.VisualStudio.Shell.Interop.8.0" Version="[8.0.50728]" />
+    <PackageVersion Include="Microsoft.VisualStudio.Shell.Interop.9.0" Version="[9.0.30730]" />
+    <PackageVersion Include="Microsoft.VisualStudio.Shell.Interop.10.0" Version="[10.0.30320]" />
+    <PackageVersion Include="Microsoft.VisualStudio.Shell.Interop.11.0" Version="[11.0.61031]" />
+    <PackageVersion Include="Microsoft.VisualStudio.Shell.Interop.12.0" Version="[12.0.30111]" />
+    <PackageVersion Include="Microsoft.VisualStudio.Shell.Interop.12.1.DesignTime" Version="[12.1.30328]" />
+    <PackageVersion Include="Microsoft.VisualStudio.Shell.Interop.14.0.DesignTime" Version="[14.3.25407]" />
+    <PackageVersion Include="Microsoft.VisualStudio.Shell.Interop.15.0.DesignTime" Version="[15.0.26201]" />
+    <PackageVersion Include="Microsoft.VisualStudio.Shell.Interop.15.1.DesignTime" Version="[15.0.26606]" />
+    <PackageVersion Include="Microsoft.VisualStudio.Shell.Interop.15.3.DesignTime" Version="[15.0.26929]" />
+    <PackageVersion Include="Microsoft.VisualStudio.Shell.Interop.15.5.DesignTime" Version="[15.6.27413]" />
+    <PackageVersion Include="Microsoft.VisualStudio.Shell.Interop.15.6.DesignTime" Version="[15.6.27413]" />
+    <PackageVersion Include="VsLangProj" Version="[7.0.3301]" />
+    <PackageVersion Include="VsLangProj2" Version="[7.0.5001]" />
+    <PackageVersion Include="VsLangProj80" Version="[8.0.50728]" />
+    <PackageVersion Include="VsLangProj90" Version="[9.0.30730]" />
+    <PackageVersion Include="VsLangProj100" Version="[10.0.30320]" />
+    <PackageVersion Include="VsLangProj110" Version="[11.0.61031]" />
+    <PackageVersion Include="VsLangProj140" Version="[14.0.25030]" />
+    <PackageVersion Include="VsLangProj150" Version="[15.0.26229]" />
+    <PackageVersion Include="EnvDTE" Version="[8.0.2]" />
+    <PackageVersion Include="EnvDTE80" Version="[8.0.2]" />
+    <PackageVersion Include="EnvDTE90" Version="[9.0.2]" />
+    <PackageVersion Include="EnvDTE90a" Version="[9.0.2]" />
+    <PackageVersion Include="EnvDTE100" Version="[10.0.2]" />
+    <PackageVersion Include="NuGet.Client" Version="[4.3.0-beta1-2418]" />
+    <PackageVersion Include="NuGet.Core" Version="[2.14.0]" />
+    <PackageVersion Include="NuGet.Common" Version="[4.7.0-preview1-4986]" />
+    <PackageVersion Include="NuGet.Protocol.Core.Types" Version="[4.3.0-beta1-2418]" />
+    <PackageVersion Include="NuGet.Protocol.Core.V3" Version="[4.3.0-beta1-2418]" />
+    <PackageVersion Include="Microsoft.CodeAnalysis" Version="[2.7.0]" />
+    <PackageVersion Include="Microsoft.CodeAnalysis.CSharp" Version="[2.7.0]" />
+    <PackageVersion Include="Microsoft.CodeAnalysis.Workspaces" Version="[1.0.0-beta1-20141031-01]" />
+    <PackageVersion Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="[2.7.0]" />
+    <PackageVersion Include="Microsoft.CodeAnalysis.EditorFeatures" Version="[2.7.0]" />
+    <PackageVersion Include="Microsoft.CodeAnalysis.EditorFeatures.Text" Version="[2.7.0]" />
+    <PackageVersion Include="Microsoft.CodeAnalysis.Scripting" Version="[2.7.0]" />
+    <PackageVersion Include="Microsoft.CodeAnalysis.CSharp.Scripting" Version="[2.7.0]" />
+    <PackageVersion Include="Microsoft.CodeAnalysis.Features" Version="[2.7.0]" />
+    <PackageVersion Include="Microsoft.CodeAnalysis.CSharp.Features" Version="[2.7.0]" />
+    <PackageVersion Include="Microsoft.VisualStudio.LanguageServices" Version="[2.7.0]" />
+    <PackageVersion Include="Microsoft.VisualStudio.ComponentModelHost" Version="[15.6.27413]" />
+    <PackageVersion Include="Microsoft.VisualStudio.CoreUtility" Version="[15.6.27413]" />
+    <PackageVersion Include="Microsoft.VisualStudio.Data.Core" Version="[9.0.21023]" />
+    <PackageVersion Include="Microsoft.VisualStudio.Data.Services" Version="[9.0.21023]" />
+    <PackageVersion Include="Microsoft.VisualStudio.Designer.Interfaces" Version="[1.1.4323]" />
+    <PackageVersion Include="Microsoft.VisualStudio.GraphModel" Version="[12.0.4]" />
+    <PackageVersion Include="Microsoft.VisualStudio.Editor" Version="[15.6.27413]" />
+    <PackageVersion Include="Microsoft.VisualStudio.ImageCatalog" Version="[15.6.27413]" />
+    <PackageVersion Include="Microsoft.VisualStudio.Imaging.Interop.14.0.DesignTime" Version="[15.0.25726-Preview5]" />
+    <PackageVersion Include="Microsoft.VisualStudio.ManagedInterfaces" Version="[8.0.50728]" />
+    <PackageVersion Include="Microsoft.VisualStudio.TextManager.Interop.12.1.DesignTime" Version="[12.1.30329]" />
+    <PackageVersion Include="Microsoft.VisualStudio.Threading.Analyzers" Version="[15.6.46]" />
+    <PackageVersion Include="Microsoft.VisualStudio.Telemetry" Version="[15.7.935-master0D83D837]" />
+    <PackageVersion Include="Microsoft.VisualStudio.VSHelp" Version="[7.0.4]" />
+    <PackageVersion Include="Microsoft.VisualStudio.WCFReference.Interop" Version="[9.0.30730]" />
+    <PackageVersion Include="Newtonsoft.Json" Version="[11.0.1]" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <!--<GlobalPackageReference Include="ICSharpCode.NRefactory" />
+    <GlobalPackageReference Include="ICSharpCode.TextEditor" />-->
+    <GlobalPackageReference Include="Microsoft.Management.Infrastructure" />
+    <GlobalPackageReference Include="Microsoft.PowerShell.Editor" />
+  </ItemGroup>
+
+</Project>

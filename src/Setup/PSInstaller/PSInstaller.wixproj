@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" InitialTargets="EnsureWixToolsetInstalled" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>3.10</ProductVersion>
+    <ProjectGuid>36f801a6-d06c-4603-b386-f5dd467ab908</ProjectGuid>
+    <SchemaVersion>2.0</SchemaVersion>
+    <OutputName>PowerShellModules</OutputName>
+    <OutputType>Package</OutputType>
+    <OutputPath>$(MSBuildProjectDirectory)..\..\..\bin\$(Configuration)\$(MSBuildProjectName)\</OutputPath>
+    <IntermediateOutputPath>$(MSBuildProjectDirectory)..\..\..\bin\obj\$(MSBuildProjectName)\</IntermediateOutputPath>
+    <DefineConstants>Debug</DefineConstants>
+    <WixTargetsPath Condition=" '$(WixTargetsPath)' == '' ">$(MSBuildExtensionsPath)\WiX Toolset\v4\wix.targets</WixTargetsPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Product.wxs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="PowerShell.ico" />
+    <Content Include="profile.ps1" />
+    <Content Include="PsISEProjectExplorer\Lucene.Net.dll" />
+    <Content Include="PsISEProjectExplorer\NLog.config" />
+    <Content Include="PsISEProjectExplorer\NLog.dll" />
+    <Content Include="PsISEProjectExplorer\PSGetModuleInfo.xml" />
+    <Content Include="PsISEProjectExplorer\PsISEProjectExplorer.dll" />
+    <Content Include="PsISEProjectExplorer\PsISEProjectExplorer.psd1" />
+    <Content Include="PsISEProjectExplorer\PsISEProjectExplorer.psm1" />
+    <Content Include="PsISEProjectExplorer\PsISEProjectExplorerPS5.dll" />
+    <Content Include="PsISEProjectExplorer\SimpleInjector.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Infrastructure\Infrastructure.csproj">
+      <Name>Infrastructure</Name>
+      <Project>{17df56dd-6a63-40d7-a831-29068d832c22}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
+    <ProjectReference Include="..\..\PowerShell.EditorFeatures.UI\PowerShell.EditorFeatures.UI.csproj">
+      <Name>PowerShell.EditorFeatures.UI</Name>
+      <Project>{d494022c-c163-42a0-ac6e-bccc395330aa}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="PsISEProjectExplorer\" />
+  </ItemGroup>
+  <Import Project="$(WixTargetsPath)" Condition=" Exists('$(WixTargetsPath)') " />
+  <Target Name="EnsureWixToolsetInstalled" Condition=" !Exists('$(WixTargetsPath)') ">
+    <Error Text="The WiX Toolset v4 build tools must be installed to build this project. To download the WiX Toolset v4, see http://wixtoolset.org/releases/" />
+  </Target>
+  <!--
+  To modify your build process, add your task inside one of the targets below and uncomment it.
+  Other similar extension points exist, see Wix.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

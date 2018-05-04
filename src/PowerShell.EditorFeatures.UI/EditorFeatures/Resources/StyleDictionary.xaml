@@ -1,0 +1,290 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:avalonedit="http://icsharpcode.net/sharpdevelop/avalonedit"
+  xmlns:sys="clr-namespace:System;assembly=mscorlib"
+  xmlns:core="clr-namespace:PowerShell.EditorFeatures.Core">
+
+  <LinearGradientBrush x:Key="ScriptHotTabItem" StartPoint="0,0" EndPoint="0,1">
+    <GradientStop Offset="0.15" Color="#EAF6FD" />
+    <GradientStop Offset=".5" Color="#D9F0FC" />
+    <GradientStop Offset=".5" Color="#BEE6FD" />
+    <GradientStop Offset="1" Color="#A7D9F5" />
+  </LinearGradientBrush>
+  <LinearGradientBrush x:Key="AddOnToolHotTabItem" StartPoint="0,0" EndPoint="0,1">
+    <GradientStop Offset="0.15" Color="#EAFDF6" />
+    <GradientStop Offset=".5" Color="#D9FCF0" />
+    <GradientStop Offset=".5" Color="#BEFDE6" />
+    <GradientStop Offset="1" Color="#A7F5D9" />
+  </LinearGradientBrush>
+  <LinearGradientBrush x:Key="ScriptUnselectedColdTabItem" StartPoint="0,0" EndPoint="0,1">
+    <GradientStop Offset="0" Color="#F3F3F3" />
+    <GradientStop Offset="0.5" Color="#EBEBEB" />
+    <GradientStop Offset="0.5" Color="#DDDDDD" />
+    <GradientStop Offset="1" Color="#CDCDCD" />
+  </LinearGradientBrush>
+  <LinearGradientBrush x:Key="ScriptSelectedTabItem" StartPoint="0.5,0" EndPoint="0.5,1">
+    <GradientStop Offset="0" Color="#FFF8DEC4" />
+    <GradientStop Offset="1" Color="#FFFFFFFF" />
+    <GradientStop Offset="0" Color="#FFDFE9FC" />
+    <GradientStop Offset="0.562" Color="#FFE1EEFC" />
+  </LinearGradientBrush>
+  <LinearGradientBrush x:Key="AddOnToolSelectedTabItem" StartPoint="0.5,0" EndPoint="0.5,1">
+    <GradientStop Offset="0" Color="#FFF8C4DE" />
+    <GradientStop Offset="1" Color="#FFFFFFFF" />
+    <GradientStop Offset="0" Color="#FFDFFCE9" />
+    <GradientStop Offset="0.562" Color="#FFE1FCEE" />
+  </LinearGradientBrush>
+  <LinearGradientBrush x:Key="RunspaceUnselectedColdTabItem" StartPoint="0.5,0" EndPoint="0.5,1">
+    <GradientStop Offset="0" Color="#FFECF1F8" />
+    <GradientStop Offset="1" Color="#FFD2DFEE" />
+    <GradientStop Offset="0.433" Color="#FFE6EEF7" />
+    <GradientStop Offset="0.531" Color="#FFDCE7F3" />
+  </LinearGradientBrush>
+  <LinearGradientBrush x:Key="RunspaceHotTabItem" StartPoint="0,0" EndPoint="0,1">
+    <GradientStop Offset="0" Color="#FFFFE8CF" />
+    <GradientStop Offset="1" Color="#FFFFFFFF" />
+  </LinearGradientBrush>
+  <SolidColorBrush x:Key="scriptBackgroundMargin" Color="#FFFFF1DF" />
+  <LinearGradientBrush x:Key="scriptBackgroundTabPanelMargin" StartPoint="0.5,0" EndPoint="0.5,1">
+    <GradientStop Offset="0" Color="#FFFFF1DF" />
+    <GradientStop Offset="1" Color="#FFFFFFFF" />
+  </LinearGradientBrush>
+  <LinearGradientBrush x:Key="RunspaceSelectedTabItem" StartPoint="0.5,0" EndPoint="0.5,1">
+    <GradientStop Offset="0" Color="#FFF8DEC3" />
+    <GradientStop Offset="1" Color="#FFFFF1DF" />
+    <GradientStop Offset="0.482" Color="#FFFFDFB7" />
+    <GradientStop Offset="0.634" Color="#FFFFE5C4" />
+  </LinearGradientBrush>
+  <SolidColorBrush x:Key="gpsPromptForeground" Color="#FF20436E" />
+  <SolidColorBrush x:Key="gpsStatusBackgroundFill" Color="#FFEEEEEE" />
+  <LinearGradientBrush x:Key="gpsStatusBackgroundLiteBlue" StartPoint="0.503,0.923" EndPoint="0.503,0.038">
+    <GradientStop Offset="0" Color="#FFCBDADD" />
+    <GradientStop Offset="1" Color="#FFE9F6F9" />
+  </LinearGradientBrush>
+  <LinearGradientBrush x:Key="gpsScriptExpanderFill" StartPoint="0.5,0" EndPoint="0.5,1">
+    <GradientStop Offset="0" Color="#FFE6F0FA" />
+    <GradientStop Offset="1" Color="#FFE6F0FA" />
+    <GradientStop Offset="0.402" Color="#FFE6F0FA" />
+    <GradientStop Offset="0.415" Color="#FFDCE6F4" />
+    <GradientStop Offset="0.969" Color="#FFE1ECF9" />
+    <GradientStop Offset="0.036" Color="#FFF8FAFC" />
+  </LinearGradientBrush>
+  <LinearGradientBrush x:Key="menuBarBackground" StartPoint="0.5,0" EndPoint="0.5,1">
+    <GradientStop Offset="0" Color="#FFE6F0FA" />
+    <GradientStop Offset="1" Color="#FFE6F0FA" />
+    <GradientStop Offset="0.402" Color="#FFE6F0FA" />
+    <GradientStop Offset="0.415" Color="#FFDCE6F4" />
+    <GradientStop Offset="0.969" Color="#FFE1ECF9" />
+    <GradientStop Offset="0.036" Color="#FFF8FAFC" />
+  </LinearGradientBrush>
+
+
+  <ObjectDataProvider
+                x:Key="OutputLanguageDataProvider"
+                MethodName="GetValues"
+                ObjectType="{x:Type sys:Enum}">
+    <ObjectDataProvider.MethodParameters>
+      <x:Type TypeName="core:OutputLanguage" />
+    </ObjectDataProvider.MethodParameters>
+  </ObjectDataProvider>
+
+  <ObjectDataProvider
+                x:Key="EncloseWithOptionDataProvider"
+                MethodName="GetValues"
+                ObjectType="{x:Type sys:Enum}">
+    <ObjectDataProvider.MethodParameters>
+      <x:Type TypeName="core:EncloseWithOption" />
+    </ObjectDataProvider.MethodParameters>
+  </ObjectDataProvider>
+
+  <ObjectDataProvider
+    x:Key="CodeLanguageDataProvider"
+    MethodName="GetNames"
+    ObjectType="{x:Type sys:Enum}">
+    <ObjectDataProvider.MethodParameters>
+      <x:Type Type="core:CodeLanguage" />
+    </ObjectDataProvider.MethodParameters>
+  </ObjectDataProvider>
+
+  <Style TargetType="{x:Type Button}">
+    <Setter Property="Height" Value="35" />
+    <Setter Property="Margin" Value="3" />
+  </Style>
+  <Style TargetType="{x:Type ComboBox}">
+    <Setter Property="Height" Value="35" />
+    <Setter Property="Margin" Value="3" />
+  </Style>
+
+  <Brush x:Key="BackgroundColor">#FF2D2D30</Brush>
+
+  <Brush x:Key="ForegroundColor">#FFF1F2F7</Brush>
+
+  <Style x:Key="TitleTextStyle" TargetType="TextBlock">
+    <Setter Property="Margin" Value="30,20,20,10" />
+    <Setter Property="FontSize" Value="24" />
+    <Setter Property="FontWeight" Value="Light" />
+  </Style>
+
+  <Style TargetType="{x:Type FlowDocument}">
+    <Style.Setters>
+      <Setter Property="FontFamily" Value="Consolas" />
+      <Setter Property="FontSize" Value="14" />
+      <Setter Property="LineHeight" Value="10" />
+      <Setter Property="LineStackingStrategy" Value="BlockLineHeight" />
+    </Style.Setters>
+  </Style>
+  <Style TargetType="{x:Type Paragraph}">
+    <Style.Setters>
+      <Setter Property="FontFamily" Value="Consolas" />
+      <Setter Property="FontSize" Value="14" />
+      <Setter Property="LineHeight" Value="10" />
+      <Setter Property="LineStackingStrategy" Value="BlockLineHeight" />
+    </Style.Setters>
+  </Style>
+
+
+
+  <Style x:Key="TextBlockBaseStyle" TargetType="TextBlock">
+    <Setter Property="Margin" Value="0" />
+    <Setter Property="Height" Value="25" />
+    <Setter Property="VerticalAlignment" Value="Top" />
+    <Setter Property="Background" Value="Transparent" />
+  </Style>
+
+  <Style x:Key="RadioViewboxBaseStyle" TargetType="Viewbox">
+    <Setter Property="Margin" Value="0,5" />
+    <Setter Property="Height" Value="20" />
+    <Setter Property="HorizontalAlignment" Value="Left" />
+  </Style>
+  <Style x:Key="ButtonBaseStyle" TargetType="Button" />
+  <Style x:Key="TextBoxBaseStyle" TargetType="TextBox">
+    <Setter Property="Margin" Value="0" />
+    <Setter Property="Height" Value="25" />
+    <Setter Property="VerticalAlignment" Value="Top" />
+    <Setter Property="VerticalContentAlignment" Value="Center" />
+    <Setter Property="Background" Value="Transparent" />
+  </Style>
+  <Style x:Key="PasswordBoxBaseStyle" TargetType="PasswordBox">
+    <Setter Property="Margin" Value="0" />
+    <Setter Property="Height" Value="25" />
+    <Setter Property="VerticalAlignment" Value="Top" />
+    <Setter Property="VerticalContentAlignment" Value="Center" />
+    <Setter Property="Background" Value="Transparent" />
+  </Style>
+
+
+  <!--  Specialized Named Styles and Resources  -->
+
+  <Style
+        x:Key="KeyButtonsStyle"
+        BasedOn="{StaticResource ButtonBaseStyle}"
+        TargetType="Button">
+    <Setter Property="Padding" Value="10,5" />
+  </Style>
+
+
+  <Style x:Key="ThemedLabelStyle" TargetType="Label">
+    <Setter Property="FontSize" Value="12" />
+  </Style>
+
+  <Style x:Key="InfoGrid" TargetType="Grid">
+    <Setter Property="ColumnSpan" Value="50" />
+  </Style>
+  <Style x:Key="InfoText" TargetType="TextBlock">
+    <Setter Property="Margin" Value="20,5" />
+    <Setter Property="HorizontalAlignment" Value="Left" />
+    <Setter Property="TextWrapping" Value="Wrap" />
+  </Style>
+
+  <Style x:Key="FooterGrid" TargetType="Grid">
+    <Setter Property="ColumnSpan" Value="50" />
+  </Style>
+  <Style x:Key="ToolbarGrid" TargetType="Grid">
+    <Setter Property="ColumnSpan" Value="50" />
+  </Style>
+
+  <Style x:Key="RichTextBoxStyle" TargetType="{x:Type RichTextBox}">
+    <Style.Setters>
+      <Setter Property="Background" Value="Tan" />
+      <Setter Property="FontSize" Value="10" />
+      <Setter Property="FontStyle" Value="Normal" />
+      <Setter Property="FontFamily" Value="Consolas" />
+      <Setter Property="AcceptsReturn" Value="True" />
+      <Setter Property="AcceptsTab" Value="True" />
+      <Setter Property="BorderThickness" Value="0" />
+      <Setter Property="Paragraph.LineHeight" Value="10" />
+      <Setter Property="ContextMenu">
+        <Setter.Value>
+          <ContextMenu>
+            <MenuItem
+                            Command="Copy"
+                            FontWeight="Regular"
+                            Header="Copy" />
+            <MenuItem
+                            Command="Cut"
+                            FontWeight="Regular"
+                            Header="Cut" />
+            <MenuItem
+                            Command="Paste"
+                            FontWeight="Regular"
+                            Header="Paste" />
+            <MenuItem
+                            Command="SelectAll"
+                            FontWeight="Regular"
+                            Header="SelectAll" />
+          </ContextMenu>
+        </Setter.Value>
+      </Setter>
+    </Style.Setters>
+  </Style>
+
+
+  <Style x:Key="AvalonEditorStyle" TargetType="{x:Type avalonedit:TextEditor}">
+    <Style.Setters>
+      <Setter Property="Background" Value="Tan" />
+      <Setter Property="FontSize" Value="10" />
+      <Setter Property="FontStyle" Value="Normal" />
+      <Setter Property="FontFamily" Value="Consolas" />
+      <Setter Property="ShowLineNumbers" Value="True" />
+      <Setter Property="SyntaxHighlighting" Value="C#" />
+      <Setter Property="HorizontalScrollBarVisibility" Value="Auto" />
+      <Setter Property="VerticalScrollBarVisibility" Value="Auto" />
+      <Setter Property="ContextMenu">
+        <Setter.Value>
+          <ContextMenu>
+            <MenuItem
+                            Command="Copy"
+                            FontWeight="Regular"
+                            Header="Copy" />
+            <MenuItem
+                            Command="Cut"
+                            FontWeight="Regular"
+                            Header="Cut" />
+            <MenuItem
+                            Command="Paste"
+                            FontWeight="Regular"
+                            Header="Paste" />
+            <MenuItem
+                            Command="SelectAll"
+                            FontWeight="Regular"
+                            Header="SelectAll" />
+            <MenuItem
+                            Command="Delete"
+                            FontWeight="Regular"
+                            Header="Delete" />
+            <MenuItem
+                            Command="Redo"
+                            FontWeight="Regular"
+                            Header="Redo" />
+            <MenuItem
+                            Command="Undo"
+                            FontWeight="Regular"
+                            Header="Undo" />
+          </ContextMenu>
+        </Setter.Value>
+      </Setter>
+    </Style.Setters>
+  </Style>
+
+</ResourceDictionary>

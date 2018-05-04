@@ -1,0 +1,148 @@
+﻿<Project>
+
+  <PropertyGroup>
+    <RootNamespace>PowerShell.Infrastructure</RootNamespace>
+    <AssemblyName>PowerShell.Infrastructure</AssemblyName>
+    <IsPowerShellProject>true</IsPowerShellProject>
+    <IncludeCommonReferences>true</IncludeCommonReferences>
+  </PropertyGroup>
+
+  <Import Project="Sdk.props" Sdk="Microsoft.NET.Sdk" />
+
+
+
+  <PropertyGroup>
+    <TargetFramework>net471</TargetFramework>
+    <OutputType>Library</OutputType>
+
+  </PropertyGroup>
+
+
+
+  <ItemGroup>
+    <Content Include="Properties\launchSettings.json" />
+    <Content Include="Resources\cmdlets.json" />
+    <Compile Include="Commands\AbstractCmdlet.ParameterEvaluator.cs" />
+    <Compile Include="Commands\AbstractCmdlet.PathEvaluator.cs" />
+    <Compile Include="Commands\AbstractPSCmdlet.cs" />
+    <Compile Include="Commands\ConvertFromEscapedStringCommand.cs" />
+    <Compile Include="Commands\ConvertToCamelCaseCommand.cs" />
+    <Compile Include="Commands\ConvertToEscapedStringCommand.cs" />
+    <Compile Include="Commands\ConvertToPascalCaseCommand.cs" />
+    <Compile Include="Utilities\EscapeStyle.cs" />
+    <Compile Include="Commands\GetAssemblyCommand.cs" />
+    <Compile Include="Utilities\IParameterEvaluator.cs" />
+    <Compile Include="Commands\RegisterAssemblyCommand.cs" />
+    <Compile Include="Commands\ResolveAssemblyCommand.cs" />
+    <Compile Include="Commands\RestartWorkstationCommand.cs" />
+    <Compile Include="Commands\StopWorkstationCommand.cs" />
+    <Compile Include="Commands\TestPendingRebootCommand.cs" />
+    <Compile Include="Commands\UnregisterAssemblyCommand.cs" />
+    <Compile Include="Fusion\AssemblyEnumerator.cs" />
+    <Compile Include="Fusion\GlobalAssemblyCache.cs" />
+    <Compile Include="Fusion\Helpers\ExtIntPtr.cs" />
+    <Compile Include="Fusion\Helpers\HResult.cs" />
+    <Compile Include="Fusion\Helpers\ParserHelpers.cs" />
+    <Compile Include="Fusion\InstallBehaviour.cs" />
+    <Compile Include="Fusion\InstallerDescription.cs" />
+    <Compile Include="Fusion\InstallerType.cs" />
+    <Compile Include="Fusion\InstallerTypeExt.cs" />
+    <Compile Include="Fusion\UninstallDisposition.cs" />
+    <Compile Include="Fusion\WrappedFusion\AssemblyCacheFlags.cs" />
+    <Compile Include="Fusion\WrappedFusion\AssemblyCompareFlags.cs" />
+    <Compile Include="Fusion\WrappedFusion\AssemblyInfo.cs" />
+    <Compile Include="Fusion\WrappedFusion\AssemblyInfoFlags.cs" />
+    <Compile Include="Fusion\WrappedFusion\AssemblyNameExt.cs" />
+    <Compile Include="Fusion\WrappedFusion\AssemblyNamePropertyId.cs" />
+    <Compile Include="Fusion\WrappedFusion\CreateDisposition.cs" />
+    <Compile Include="Fusion\WrappedFusion\DisplayNameFlags.cs" />
+    <Compile Include="Fusion\WrappedFusion\FusionInstallReference.cs" />
+    <Compile Include="Fusion\WrappedFusion\IApplicationContext.cs" />
+    <Compile Include="Fusion\WrappedFusion\IAssemblyCache.cs" />
+    <Compile Include="Fusion\WrappedFusion\IAssemblyCacheItem.cs" />
+    <Compile Include="Fusion\WrappedFusion\IAssemblyEnum.cs" />
+    <Compile Include="Fusion\WrappedFusion\IAssemblyName.cs" />
+    <Compile Include="Fusion\WrappedFusion\IHistoryReader.cs" />
+    <Compile Include="Fusion\WrappedFusion\IInstallReferenceEnum.cs" />
+    <Compile Include="Fusion\WrappedFusion\IInstallReferenceItem.cs" />
+    <Compile Include="Fusion\WrappedFusion\QueryTypeId.cs" />
+    <Compile Include="PowerShellResources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>PowerShellResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\CharacterClass.cs" />
+    <Compile Include="Utilities\CharacterFormat.cs" />
+    <Compile Include="Utilities\Characters.cs" />
+    <Compile Include="Utilities\CharacterStyle.cs" />
+    <Compile Include="Utilities\CimClassNames.cs" />
+    <Compile Include="Utilities\CimMethodNames.cs" />
+    <Compile Include="Utilities\CimNamespaces.cs" />
+    <Compile Include="Commands\CmdletGenerator.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>CmdletGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\DirectoryContexts.cs" />
+    <Compile Include="Utilities\DirectoryUtilities.cs" />
+    <Compile Include="Utilities\GuidOptions.cs" />
+    <Compile Include="Utilities\GuidUtilities.cs" />
+    <Compile Include="Utilities\HexUtilities.cs" />
+    <Compile Include="Utilities\PagingUtilities.cs" />
+    <Compile Include="Utilities\PathUtilities.cs" />
+    <Compile Include="Utilities\ProductKey.cs" />
+    <Compile Include="Utilities\RegistryPaths.cs" />
+    <Compile Include="Utilities\RegistryUtilities.cs" />
+    <Compile Include="Utilities\StringUtilities.cs" />
+    <Compile Include="Utilities\UACUtilities.cs" />
+    <Compile Include="Utilities\UnicodeCharacterUtilities.cs" />
+    <Compile Include="Utilities\WebUtilities.cs" />
+  </ItemGroup>
+
+
+
+  <ItemGroup>
+    <EmbeddedResource Include="PowerShellResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <CustomToolNamespace>PowerShell.Infrastructure</CustomToolNamespace>
+      <LastGenOutput>PowerShellResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+
+
+  <ItemGroup>
+    <None Include="Start-Debug.ps1">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Commands\CmdletGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>CmdletGenerator.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+
+
+  <ItemGroup>
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.DirectoryServices.AccountManagement" />
+    <Reference Include="System.DirectoryServices.Protocols" />
+  </ItemGroup>
+
+
+
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+
+
+
+  <ItemGroup>
+    <Folder Include="Core\" />
+  </ItemGroup>
+
+
+
+
+  <Import Project="Sdk.targets" Sdk="Microsoft.NET.Sdk" />
+</Project>

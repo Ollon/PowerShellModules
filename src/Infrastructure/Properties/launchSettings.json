@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "PowerShell Debugger": {
+      "commandName": "Executable",
+      "executablePath": "$(windir)\\System32\\WindowsPowerShell\\v1.0\\PowerShell.exe",
+      "commandLineArgs": "-NoExit -ExecutionPolicy ByPass -File Start-Debug.ps1",
+      "workingDirectory": "$(OutputPath)"
+    }
+  }
+}

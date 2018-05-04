@@ -1,0 +1,217 @@
+{
+  "cmdlets": [
+    {
+      "verb": "Get",
+      "noun": "ProductKey",
+      "alias": "pkey",
+      "params": [
+        {
+          "name": "ProductKey",
+          "type": "ProductKey" 
+        }
+      ] 
+    },
+    {
+      "verb": "Stop",
+      "noun": "Workstation",
+      "alias": "reboot",
+      "process": true, 
+      "params": [
+        {
+          "name": "ComputerName",
+          "type": "string"
+        },
+        {
+          "name": "Credential",
+          "type": "PSCredential" 
+        },
+        {
+          "name": "Force",
+          "type": "SwitchParameter" 
+        }
+      ] 
+    },
+    {
+      "verb": "Restart",
+      "noun": "Workstation",
+      "alias": "reboot",
+      "process": true, 
+      "params": [
+        {
+          "name": "ComputerName",
+          "type": "string"
+        },
+        {
+          "name": "Credential",
+          "type": "PSCredential" 
+        },
+        {
+          "name": "Force",
+          "type": "SwitchParameter" 
+        }
+      ] 
+    },
+    {
+      "verb": "ConvertFrom",
+      "noun":  "EscapedString",
+      "alias": "",
+      "params":  [
+        {
+          "name": "InputObject",
+          "type":  "PSObject"
+        },
+        {
+          "name":  "Style",
+          "type":  "EscapeStyle" 
+        }
+      ] 
+    },
+    {
+      "verb": "ConvertTo",
+      "noun":  "EscapedString",
+      "alias": "",
+      "params":  [
+        {
+          "name": "InputObject",
+          "type":  "PSObject"
+        },
+        {
+          "name":  "Style",
+          "type":  "EscapeStyle" 
+        }
+      ] 
+    },
+    {
+      "verb": "ConvertTo",
+      "noun":  "PascalCase",
+      "alias": "",
+      "params":  [
+        {
+          "name": "InputObject",
+          "type":  "PSObject"
+        }
+      ] 
+    },
+    {
+      "verb": "ConvertTo",
+      "noun":  "CamelCase",
+      "alias": "",
+      "params":  [
+        {
+          "name": "InputObject",
+          "type":  "PSObject"
+        }
+      ] 
+    },
+    {
+      "verb": "Resolve",
+      "noun":  "Assembly",
+      "alias": "",
+      "params":  [
+        {
+          "name": "Path",
+          "type":  "string",
+          "set": "Path"
+        },
+        {
+          "name": "PartialName",
+          "type": "string",
+          "set": "PartialName" 
+        }
+      ] 
+    },
+    {
+      "verb": "Get",
+      "noun": "Assembly",
+      "alias": "gasm",
+      "paging": true, 
+      "isDynamic":  true, 
+      "params": [
+        {
+          "name": "Load",
+          "type": "string",
+          "mandatory": false
+        },
+        {
+          "name": "LoadFrom",
+          "type": "string",
+          "mandatory": false
+        },
+        {
+          "name": "All",
+          "type": "SwitchParameter",
+          "mandatory": false
+        },
+        {
+          "name": "Name",
+          "type": "string",
+          "mandatory": false,
+          "isDynamic":  true 
+        }
+      ] 
+    },
+    {
+      "verb": "Register",
+      "noun": "Assembly",
+      "alias": "rasm",
+      "params": [
+        {
+          "name": "Path",
+          "type": "string",
+          "mandatory": true
+        },
+        {
+          "name": "InstallBehavior",
+          "type": "InstallBehaviour",
+          "mandatory": false
+        }
+      ]
+    },
+    {
+      "verb": "Unregister",
+      "noun": "Assembly",
+      "isDynamic": true, 
+      "alias": "uasm",
+      "params": [
+        {
+          "name": "Path",
+          "type": "string",
+          "mandatory": false,
+          "set": "ByPath" 
+        },
+        {
+          "name": "Name",
+          "type":  "string",
+          "mandatory": false,
+          "isDynamic": true,
+          "set": "ByName" 
+        }
+      ] 
+    },
+    {
+      "verb": "Test",
+      "noun": "PendingReboot",
+      "alias": "tpr",
+      "params": [
+        {
+          "name": "ComputerName",
+          "type":  "string",
+          "mandatory": false,
+          "isDynamic": false
+        },
+        {
+          "name": "Credential",
+          "type":  "PSCredential",
+          "mandatory": false,
+          "isDynamic": false
+        },
+        {
+          "name": "Force",
+          "type":  "SwitchParameter",
+          "mandatory": false,
+          "isDynamic": false
+        }
+      ] 
+    }
+  ]
+}

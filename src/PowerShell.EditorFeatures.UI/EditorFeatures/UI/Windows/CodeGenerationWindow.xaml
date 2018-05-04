@@ -1,0 +1,126 @@
+﻿<Window
+    x:Class="PowerShell.EditorFeatures.UI.Windows.CodeGenerationWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:avalonedit="http://icsharpcode.net/sharpdevelop/avalonedit"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:features="clr-namespace:PowerShell.EditorFeatures.Core"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:windows="clr-namespace:PowerShell.EditorFeatures.UI.Windows"
+    Width="867"
+    Height="600"
+    Background="{DynamicResource BackgroundColor}"
+    Foreground="{DynamicResource ForegroundColor}"
+    mc:Ignorable="d">
+    <Window.Resources>
+        <ResourceDictionary>
+            <!--<windows:CodeGenerationModel
+                x:Key="DesignData"
+                    />-->
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/PowerShell.EditorFeatures.UI;component/EditorFeatures/Resources/StyleDictionary.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="45" />
+        </Grid.RowDefinitions>
+
+        <TextBlock Style="{DynamicResource TitleTextStyle}">
+            Code Generation Window
+        </TextBlock>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <StackPanel>
+                <Button Click="OnCSharpEnumToPowerShellScript_Click" FontSize="10" Content="CSharp Enum -> PowerShell Script" Margin="3" />
+                <Button Click="OnCSharpCodeToCodeDom_Click" FontSize="10" Content="CSharp Code -> CodeDom" Margin="3" />
+                <Button Click="OnCSharpCodeToRoslyn_Click" FontSize="10" Content="CSharp Code -> Roslyn" Margin="3" />
+            </StackPanel>
+            <!--<Grid Grid.Column="0" Margin="5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="1" />
+                <StackPanel Grid.Row="3" />
+                <Grid Grid.Row="5" />
+                <Button
+                    x:Name="CSharpEnumToPowerShellEnum"
+                    Grid.Row="2"
+                   
+                    Content="CSharp Enum to PowerShell Script" />
+                <Button
+                    x:Name="EncloseWithWriteLine"
+                    Grid.Row="4"
+                    
+                    Content="Enclose with WriteLine..." />
+            </Grid>-->
+            <Grid Grid.Column="1">
+                <TabControl Margin="0" Background="{x:Null}">
+
+                    <TabControl.Items>
+                        <TabItem
+                            x:Name="InputTabItem"
+                            Header="Input"
+                            IsSelected="True">
+                            <TabItem.Content>
+                                <avalonedit:TextEditor x:Name="InputTextEditor" Style="{DynamicResource AvalonEditorStyle}" />
+                            </TabItem.Content>
+                        </TabItem>
+                        <TabItem x:Name="ListsTabItem" Header="Lists">
+                            <TabItem.Content>
+                                <avalonedit:TextEditor x:Name="CodeDomEditor"
+                                                       Style="{DynamicResource AvalonEditorStyle}" />
+                            </TabItem.Content>
+                        </TabItem>
+                        <TabItem x:Name="OutputTabItem" Header="Output">
+                            <TabItem.Content>
+                                <avalonedit:TextEditor x:Name="OutputTextEditor" Style="{DynamicResource AvalonEditorStyle}" />
+                            </TabItem.Content>
+                        </TabItem>
+                    </TabControl.Items>
+                </TabControl>
+            </Grid>
+        </Grid>
+
+        <Border
+            Grid.Row="2"
+            BorderBrush="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}"
+            BorderThickness="1">
+            <Grid Style="{DynamicResource FooterGrid}">
+                <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                    <Button
+                        x:Name="OKButton"
+                        Width="75"
+                        Height="23"
+                        Margin="5"
+                        Padding="6,0"
+                        Click="OKButton_Click"
+                        Content="OK"
+                        FontSize="12"
+                        IsDefault="True" />
+                    <Button
+                        x:Name="CancelButton"
+                        Width="75"
+                        Height="23"
+                        Margin="5"
+                        Padding="6,0"
+                        Click="CancelButton_Click"
+                        Content="Cancel"
+                        FontSize="12"
+                        IsCancel="True" />
+                </StackPanel>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>
