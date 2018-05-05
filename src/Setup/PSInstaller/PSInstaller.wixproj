@@ -28,6 +28,7 @@
     <Content Include="PsISEProjectExplorer\PsISEProjectExplorer.psm1" />
     <Content Include="PsISEProjectExplorer\PsISEProjectExplorerPS5.dll" />
     <Content Include="PsISEProjectExplorer\SimpleInjector.dll" />
+    <Content Include="Script.ps1" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Infrastructure\Infrastructure.csproj">
