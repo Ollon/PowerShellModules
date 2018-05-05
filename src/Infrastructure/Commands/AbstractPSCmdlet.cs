@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Management.Automation;
+using System.Net;
 using System.Security;
 using Microsoft.Management.Infrastructure.Options;
 
@@ -18,7 +19,7 @@ namespace PowerShell.Infrastructure.Commands
     /// </summary>
     public abstract partial class AbstractPSCmdlet : PSCmdlet
     {
-        protected RuntimeDefinedParameterDictionary _dynamicParameters;
+        protected RuntimeDefinedParameterDictionary DynamicParameters;
 
         protected AbstractPSCmdlet()
         {
@@ -73,12 +74,28 @@ namespace PowerShell.Infrastructure.Commands
 
         protected CimSessionOptions GetSessionOptionsFromPSCredential(PSCredential pscredential)
         {
-            string domain = pscredential.GetNetworkCredential().Domain;
-            string userName = pscredential.GetNetworkCredential().UserName;
-            SecureString password = pscredential.GetNetworkCredential().SecurePassword;
-            CimCredential credential = new CimCredential(PasswordAuthenticationMechanism.NtlmDomain, domain, userName, password);
             CimSessionOptions options = new CimSessionOptions();
-            options.AddDestinationCredentials(credential);
+            try
+            {
+                NetworkCredential networkCredential = pscredential?.GetNetworkCredential();
+                if (networkCredential != null)
+                {
+                    string domain = networkCredential?.Domain;
+                    string userName = pscredential.GetNetworkCredential()?.UserName;
+                    SecureString password = pscredential.GetNetworkCredential()?.SecurePassword;
+                    if (password != null)
+                    {
+                        CimCredential credential =
+                            new CimCredential(PasswordAuthenticationMechanism.NtlmDomain, domain, userName, password);
+                        options.AddDestinationCredentials(credential);
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                WriteDebug(e.Message);
+            }
+
             return options;
         }
     }

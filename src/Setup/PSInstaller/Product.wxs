@@ -76,6 +76,10 @@
               Source="$(var.Infrastructure.TargetDir)\PowerShell.Infrastructure\PowerShell.Infrastructure.psd1" />
         <File Id="FILE_SystemManagementAutomationdll"
               Source="$(var.Infrastructure.TargetDir)\PowerShell.Infrastructure\System.Management.Automation.dll" />
+        <File Id="FILE_NewtonsoftJsondll"
+              Source="$(var.Infrastructure.TargetDir)\PowerShell.Infrastructure\Newtonsoft.Json.dll" />
+        <File Id="FILE_NewtonsoftJsondSchemadll"
+              Source="$(var.Infrastructure.TargetDir)\PowerShell.Infrastructure\Newtonsoft.Json.Schema.dll" />
       </Component>
     </DirectoryRef>
 

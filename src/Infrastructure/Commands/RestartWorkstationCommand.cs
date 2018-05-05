@@ -36,18 +36,27 @@ namespace PowerShell.Infrastructure.Commands
             WriteVerbose($"   Confirm     = {_confirmed}");
             WriteVerbose($"   ComputerName = {ComputerName}");
 
-            if (Force && !_confirmed)
+            if (Force)
             {
                 RestartMachine(ComputerName);
             }
-            else
+
+            bool shouldContinue = true;
+
+            if (_confirmed)
             {
-                if (ShouldContinue($"Do you want to restart computer {ComputerName}?",
+                if (!ShouldContinue($"Do you want to restart computer {ComputerName}?",
                     $"Restart Computer {ComputerName}"))
                 {
-                    RestartMachine(ComputerName);
+                    shouldContinue = false;
                 }
             }
+
+            if (shouldContinue)
+            {
+                RestartMachine(ComputerName);
+            }
+
         }
 
         private void RestartMachine(string computerName)

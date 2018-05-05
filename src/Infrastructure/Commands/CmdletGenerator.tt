@@ -56,9 +56,13 @@
         {
             Write(", SupportsShouldProcess = true");
         }
+        if (cmdlet.Paging)
+        {
+            Write(", SupportsPaging = true");
+        }
         WriteLine(")]");
         Write($"public partial class {cmdlet.Verb}{cmdlet.Noun}Command");
-        if (cmdlet.IsDynamic)
+        if (cmdlet.Dynamic)
         {
             WriteLine(" : AbstractPSCmdlet, IDynamicParameters");
         }
@@ -74,7 +78,7 @@
         {
             foreach(var parameter in cmdlet.Params)
             {
-                if (!parameter.IsDynamic)
+                if (!parameter.Dynamic)
                 {
                     WriteLine("");
                     Write("[Parameter");
@@ -126,7 +130,7 @@
                     WriteLine(@"get");
                     WriteLine(@"{");
                     PushIndent("    ");
-                    WriteLine($"return ({parameter.Type}) _dynamicParameters[\"{parameter.Name}\"].Value;");
+                    WriteLine($"return ({parameter.Type}) DynamicParameters[\"{parameter.Name}\"].Value;");
                     PopIndent();
                     WriteLine(@"}");
                     PopIndent();
@@ -311,7 +315,11 @@
 
         public bool Paging { get; set; }
 
-        public bool IsDynamic { get; set; }
+        public bool Dynamic { get; set; }
+
+        public bool Transactions { get; set; }
+
+        public string ParameterSet { get; set; }
 
         public List<Parameter> Params { get; set; }
     }
@@ -322,7 +330,7 @@
 
         public string Type { get; set; }
 
-        public bool IsDynamic { get; set; }
+        public bool Dynamic { get; set; }
 
         public string Set { get; set; }
 

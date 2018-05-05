@@ -18,15 +18,7 @@ namespace PowerShell.Infrastructure.Commands
         private const string RebootRequired = nameof(RebootRequired);
         private const string PendingFileRenameOperations = nameof(PendingFileRenameOperations);
 
-        private struct RestartInfo
-        {
-            public string ComputerName;
-            public string ActiveComputerName;
-            public bool ComputerPendingRename;
-            public bool PendingFileRenameOperations;
-            public bool WindowsAutoUpdate;
-            public bool CBSRebootPend;
-        }
+
 
         /// <summary>
         /// When overridden in the derived class, performs initialization
@@ -82,7 +74,7 @@ namespace PowerShell.Infrastructure.Commands
             session.Dispose();
         }
 
-                private static string CimGetMultiStringValue(string computerName, string subKey)
+        private static string CimGetMultiStringValue(string computerName, string subKey)
         {
             using (CimSession session = CimSession.Create(computerName))
             {
@@ -170,5 +162,15 @@ namespace PowerShell.Infrastructure.Commands
             options.AddDestinationCredentials(credential);
             return options;
         }
+    }
+
+    public struct RestartInfo
+    {
+        public string ComputerName { get; set; }
+        public string ActiveComputerName { get; set; }
+        public bool ComputerPendingRename { get; set; }
+        public bool PendingFileRenameOperations { get; set; }
+        public bool WindowsAutoUpdate { get; set; }
+        public bool CBSRebootPend { get; set; }
     }
 }

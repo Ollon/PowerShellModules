@@ -34,7 +34,7 @@ namespace PowerShell.Infrastructure.Commands
 
 
     [Alias("pkey")]
-    [Cmdlet(VerbsCommon.Get, ProductKeyName)]
+    [Cmdlet(VerbsCommon.Get, ProductKeyName, SupportsPaging = true)]
     public partial class GetProductKeyCommand : AbstractPSCmdlet
     {
         private const string ProductKeyName = "ProductKey";
@@ -42,11 +42,14 @@ namespace PowerShell.Infrastructure.Commands
         [Parameter]
         public ProductKey ProductKey { get; set; }
 
+        [Parameter]
+        public SwitchParameter All { get; set; }
+
 
         public override string ToString() => PowerShellFactory.GetProductKeyCmdlet;
     }
 
-    [Alias("reboot")]
+    [Alias("off")]
     [Cmdlet(VerbsLifecycle.Stop, WorkstationName, SupportsShouldProcess = true)]
     public partial class StopWorkstationCommand : AbstractPSCmdlet
     {
@@ -154,7 +157,7 @@ namespace PowerShell.Infrastructure.Commands
     }
 
     [Alias("gasm")]
-    [Cmdlet(VerbsCommon.Get, AssemblyName)]
+    [Cmdlet(VerbsCommon.Get, AssemblyName, SupportsPaging = true)]
     public partial class GetAssemblyCommand : AbstractPSCmdlet, IDynamicParameters
     {
         private const string AssemblyName = "Assembly";
@@ -167,6 +170,7 @@ namespace PowerShell.Infrastructure.Commands
 
         [Parameter]
         public SwitchParameter All { get; set; }
+
         protected bool NameParameterSpecified
         {
             get
@@ -179,7 +183,7 @@ namespace PowerShell.Infrastructure.Commands
         {
             get
             {
-                return (string) _dynamicParameters["Name"].Value;
+                return (string) DynamicParameters["Name"].Value;
             }
         }
 
@@ -223,7 +227,7 @@ namespace PowerShell.Infrastructure.Commands
         {
             get
             {
-                return (string) _dynamicParameters["Name"].Value;
+                return (string) DynamicParameters["Name"].Value;
             }
         }
 

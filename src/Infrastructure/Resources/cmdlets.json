@@ -4,17 +4,25 @@
       "verb": "Get",
       "noun": "ProductKey",
       "alias": "pkey",
+      "paging": true,
+      "parameterSet": null,
+      "process": false,
+      "transactions": false,
       "params": [
         {
           "name": "ProductKey",
           "type": "ProductKey" 
+        },
+        {
+          "name": "All",
+          "type": "SwitchParameter" 
         }
       ] 
     },
     {
       "verb": "Stop",
       "noun": "Workstation",
-      "alias": "reboot",
+      "alias": "off",
       "process": true, 
       "params": [
         {
@@ -125,7 +133,7 @@
       "noun": "Assembly",
       "alias": "gasm",
       "paging": true, 
-      "isDynamic":  true, 
+      "dynamic":  true, 
       "params": [
         {
           "name": "Load",
@@ -146,7 +154,7 @@
           "name": "Name",
           "type": "string",
           "mandatory": false,
-          "isDynamic":  true 
+          "dynamic":  true 
         }
       ] 
     },
@@ -170,7 +178,7 @@
     {
       "verb": "Unregister",
       "noun": "Assembly",
-      "isDynamic": true, 
+      "dynamic": true, 
       "alias": "uasm",
       "params": [
         {
@@ -183,7 +191,7 @@
           "name": "Name",
           "type":  "string",
           "mandatory": false,
-          "isDynamic": true,
+          "dynamic": true,
           "set": "ByName" 
         }
       ] 
@@ -197,19 +205,19 @@
           "name": "ComputerName",
           "type":  "string",
           "mandatory": false,
-          "isDynamic": false
+          "dynamic": false
         },
         {
           "name": "Credential",
           "type":  "PSCredential",
           "mandatory": false,
-          "isDynamic": false
+          "dynamic": false
         },
         {
           "name": "Force",
           "type":  "SwitchParameter",
           "mandatory": false,
-          "isDynamic": false
+          "dynamic": false
         }
       ] 
     }

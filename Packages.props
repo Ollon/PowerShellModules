@@ -2,6 +2,7 @@
 <Project>
   <!--Implicit Package References-->
   <ItemGroup>
+    <PackageVersion Include="Newtonsoft.Json.Schema" Version="[3.0.10]"/>
     <PackageVersion Include="ICSharpCode.NRefactory" Version="5.5.1" />
     <PackageVersion Include="ICSharpCode.TextEditor" Version="3.2.1.6466" />
     <PackageVersion Include="Microsoft.Management.Infrastructure" Version="[4.0.0]" />

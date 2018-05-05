@@ -54,11 +54,11 @@ namespace PowerShell.Infrastructure.Commands
                 new ValidateSetAttribute(assemblyNames.ToArray())
             };
             RuntimeDefinedParameter nameParameter = new RuntimeDefinedParameter("Name", typeof(string), attributes);
-            _dynamicParameters = new RuntimeDefinedParameterDictionary
+            DynamicParameters = new RuntimeDefinedParameterDictionary
             {
                 {"Name", nameParameter}
             };
-            return _dynamicParameters;
+            return DynamicParameters;
         }
 
         private static IEnumerable<string> GetAssemblyNames()

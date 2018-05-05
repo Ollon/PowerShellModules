@@ -29,6 +29,9 @@
     <Compile Include="Commands\ConvertToCamelCaseCommand.cs" />
     <Compile Include="Commands\ConvertToEscapedStringCommand.cs" />
     <Compile Include="Commands\ConvertToPascalCaseCommand.cs" />
+    <Compile Include="Commands\GetProductKeyCommand.cs" />
+    <Compile Include="Commands\OutJsonCommand.cs" />
+    <Compile Include="Commands\OutXmlCommand.cs" />
     <Compile Include="Utilities\EscapeStyle.cs" />
     <Compile Include="Commands\GetAssemblyCommand.cs" />
     <Compile Include="Utilities\IParameterEvaluator.cs" />
@@ -90,7 +93,9 @@
     <Compile Include="Utilities\HexUtilities.cs" />
     <Compile Include="Utilities\PagingUtilities.cs" />
     <Compile Include="Utilities\PathUtilities.cs" />
+    <Compile Include="Utilities\PowerShellExtensions.cs" />
     <Compile Include="Utilities\ProductKey.cs" />
+    <Compile Include="Utilities\ProductKeyFactory.cs" />
     <Compile Include="Utilities\RegistryPaths.cs" />
     <Compile Include="Utilities\RegistryUtilities.cs" />
     <Compile Include="Utilities\StringUtilities.cs" />
@@ -124,6 +129,8 @@
 
 
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" />
+    <PackageReference Include="Newtonsoft.Json.Schema" />
     <Reference Include="System.DirectoryServices" />
     <Reference Include="System.DirectoryServices.AccountManagement" />
     <Reference Include="System.DirectoryServices.Protocols" />
