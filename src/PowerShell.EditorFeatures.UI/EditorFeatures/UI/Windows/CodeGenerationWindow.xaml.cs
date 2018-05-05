@@ -7,6 +7,8 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
 using ICSharpCode.AvalonEdit.Document;
+using Microsoft.PowerShell.Host.ISE;
+using PowerShell.EditorFeatures.Core.Host;
 using PowerShell.EditorFeatures.Core.Parsing;
 
 namespace PowerShell.EditorFeatures.UI.Windows
@@ -19,6 +21,8 @@ namespace PowerShell.EditorFeatures.UI.Windows
         private readonly CodeGenerationViewModel _viewModel;
 
 
+        private IEditorFeaturesHostObject HostObject { get; set; }
+
         private TextDocument OutputDocument => OutputTextEditor.Document;
 
         private TextDocument InputDocument => InputTextEditor.Document;
@@ -26,6 +30,8 @@ namespace PowerShell.EditorFeatures.UI.Windows
         public string OutputText => OutputDocument.Text;
 
         public string InputText => InputDocument.Text;
+
+        public string NewFileText { get; set; }
 
 
         public CodeGenerationWindow()
@@ -37,8 +43,9 @@ namespace PowerShell.EditorFeatures.UI.Windows
 
         }
 
-        public CodeGenerationWindow(CodeGenerationViewModel viewModel)
+        public CodeGenerationWindow(CodeGenerationViewModel viewModel, IEditorFeaturesHostObject hostObject)
         {
+            HostObject = hostObject;
             _viewModel = viewModel;
             InitializeComponent();
             DataContext = _viewModel;
@@ -56,17 +63,13 @@ namespace PowerShell.EditorFeatures.UI.Windows
 
         private void OKButton_Click(object sender, RoutedEventArgs e)
         {
-            _viewModel.OutputText = OutputText;
-
+            NewFileText = OutputText;
             DialogResult = true;
             Close();
         }
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
-
-            _viewModel.OutputText = OutputText;
-
             DialogResult = false;
             Close();
         }

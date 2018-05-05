@@ -13,6 +13,8 @@ namespace PowerShell.EditorFeatures.UI.Windows
         }
 
 
+
+
         public string InputText
         {
             get

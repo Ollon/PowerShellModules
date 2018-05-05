@@ -57,7 +57,7 @@ namespace PowerShell.EditorFeatures.UI.Controls
         {
             ISEFile newFile = CurrentTab.Files.Add();
             newFile.Editor.Text = text;
-            newFile.Editor.SetCaretPosition(1, 1);
+            newFile.Editor.EnsureVisible(1);
             return newFile;
         }
 
@@ -73,12 +73,12 @@ namespace PowerShell.EditorFeatures.UI.Controls
 
         public void SetCaretPosition(int x, int y)
         {
-            CurrentFile.Editor.SetCaretPosition(x, y);
+            CurrentEditor.SetCaretPosition(x, y);
         }
 
         public void SetCurrentFileText(string text)
         {
-            CurrentFile.Editor.Text = text;
+            CurrentEditor.Text = text;
         }
 
         public void ShiftTextLeft(int i)
@@ -206,13 +206,16 @@ namespace PowerShell.EditorFeatures.UI.Controls
 
         private void OnGenerateCodeButton_Click(object sender, RoutedEventArgs e)
         {
-            var infra = CodeGenerationFactory.Create();
+            CodeGenerationInfrastructure infra = CodeGenerationFactory.Create(this);
 
             var view = infra.View;
 
             if (view.ShowDialog() == true)
             {
-                SetCurrentFileText(view.OutputText);
+
+                ISEFile file = CreateFile(view.NewFileText);
+
+                file.Editor.Focus();
             }
         }
 
