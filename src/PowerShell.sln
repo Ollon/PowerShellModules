@@ -5,9 +5,11 @@ VisualStudioVersion = 15.0.27130.2024
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{2B664350-E227-46B3-ABD9-BE8D00711336}"
 	ProjectSection(SolutionItems) = preProject
+		..\docs\Schemas\cmdlets-over-objects.objectModel.xsd = ..\docs\Schemas\cmdlets-over-objects.objectModel.xsd
 		Directory.Build.props = Directory.Build.props
 		Directory.Build.targets = Directory.Build.targets
 		..\Packages.props = ..\Packages.props
+		..\docs\Schemas\PowerShellUtilities.Format.xsd = ..\docs\Schemas\PowerShellUtilities.Format.xsd
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{5415F49F-DA43-46A7-B9AD-C48A42E14C69}"
@@ -21,6 +23,10 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Setup", "Setup", "{FBFC7671-013F-47C5-802C-A1ADA861A1FF}"
 EndProject
 Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "PSInstaller", "Setup\PSInstaller\PSInstaller.wixproj", "{36F801A6-D06C-4603-B386-F5DD467AB908}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerShell.EditorFeatures.UI.Controls", "PowerShell.EditorFeatures.UI.Controls\PowerShell.EditorFeatures.UI.Controls.csproj", "{3DE3CBCD-7C65-4EC7-85BF-D4A47523A2BE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfAppTester", "WpfAppTester\WpfAppTester.csproj", "{CF870396-7457-4BB2-A6D7-4E278EDE0631}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -66,6 +72,30 @@ Global
 		{36F801A6-D06C-4603-B386-F5DD467AB908}.Release|Any CPU.ActiveCfg = Release|x86
 		{36F801A6-D06C-4603-B386-F5DD467AB908}.Release|x86.ActiveCfg = Release|x86
 		{36F801A6-D06C-4603-B386-F5DD467AB908}.Release|x86.Build.0 = Release|x86
+		{3DE3CBCD-7C65-4EC7-85BF-D4A47523A2BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DE3CBCD-7C65-4EC7-85BF-D4A47523A2BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DE3CBCD-7C65-4EC7-85BF-D4A47523A2BE}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{3DE3CBCD-7C65-4EC7-85BF-D4A47523A2BE}.Debug|x86.Build.0 = Debug|Any CPU
+		{3DE3CBCD-7C65-4EC7-85BF-D4A47523A2BE}.Exp|Any CPU.ActiveCfg = Exp|Any CPU
+		{3DE3CBCD-7C65-4EC7-85BF-D4A47523A2BE}.Exp|Any CPU.Build.0 = Exp|Any CPU
+		{3DE3CBCD-7C65-4EC7-85BF-D4A47523A2BE}.Exp|x86.ActiveCfg = Exp|Any CPU
+		{3DE3CBCD-7C65-4EC7-85BF-D4A47523A2BE}.Exp|x86.Build.0 = Exp|Any CPU
+		{3DE3CBCD-7C65-4EC7-85BF-D4A47523A2BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DE3CBCD-7C65-4EC7-85BF-D4A47523A2BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3DE3CBCD-7C65-4EC7-85BF-D4A47523A2BE}.Release|x86.ActiveCfg = Release|Any CPU
+		{3DE3CBCD-7C65-4EC7-85BF-D4A47523A2BE}.Release|x86.Build.0 = Release|Any CPU
+		{CF870396-7457-4BB2-A6D7-4E278EDE0631}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF870396-7457-4BB2-A6D7-4E278EDE0631}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF870396-7457-4BB2-A6D7-4E278EDE0631}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{CF870396-7457-4BB2-A6D7-4E278EDE0631}.Debug|x86.Build.0 = Debug|Any CPU
+		{CF870396-7457-4BB2-A6D7-4E278EDE0631}.Exp|Any CPU.ActiveCfg = Release|Any CPU
+		{CF870396-7457-4BB2-A6D7-4E278EDE0631}.Exp|Any CPU.Build.0 = Release|Any CPU
+		{CF870396-7457-4BB2-A6D7-4E278EDE0631}.Exp|x86.ActiveCfg = Release|Any CPU
+		{CF870396-7457-4BB2-A6D7-4E278EDE0631}.Exp|x86.Build.0 = Release|Any CPU
+		{CF870396-7457-4BB2-A6D7-4E278EDE0631}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF870396-7457-4BB2-A6D7-4E278EDE0631}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF870396-7457-4BB2-A6D7-4E278EDE0631}.Release|x86.ActiveCfg = Release|Any CPU
+		{CF870396-7457-4BB2-A6D7-4E278EDE0631}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -74,6 +104,8 @@ Global
 		{17DF56DD-6A63-40D7-A831-29068D832C22} = {5415F49F-DA43-46A7-B9AD-C48A42E14C69}
 		{D494022C-C163-42A0-AC6E-BCCC395330AA} = {2AD7AECF-F8EA-477A-8D84-4AEB49C98A2F}
 		{36F801A6-D06C-4603-B386-F5DD467AB908} = {FBFC7671-013F-47C5-802C-A1ADA861A1FF}
+		{3DE3CBCD-7C65-4EC7-85BF-D4A47523A2BE} = {2AD7AECF-F8EA-477A-8D84-4AEB49C98A2F}
+		{CF870396-7457-4BB2-A6D7-4E278EDE0631} = {2AD7AECF-F8EA-477A-8D84-4AEB49C98A2F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A7A4EA60-E5A2-40D5-9E8D-0AB28E23A115}

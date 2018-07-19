@@ -193,6 +193,10 @@ namespace PowerShell.EditorFeatures.Core.Features.SmartPaste
             using (StringReader reader = new StringReader(fullString))
             {
                 string line;
+                //while ((line = reader.ReadLine()) != null)
+                //{
+                //    sb.AppendLine(line);
+                //}
                 while ((line = reader.ReadLine()) != null)
                 {
                     sb.Append("$null = $sb.AppendLine");
@@ -206,7 +210,8 @@ namespace PowerShell.EditorFeatures.Core.Features.SmartPaste
             sb.AppendLine("$sb.ToString() | Set-Clipboard");
             sb.AppendLine("");
             sb.AppendLine("$sb.ToString()");
-            
+            sb.AppendLine("");
+
 
             hostObject.SetCurrentFileText(sb.ToString());
         }

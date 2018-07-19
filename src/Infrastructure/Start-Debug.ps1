@@ -3,6 +3,9 @@ Clear-Host
 
 Import-Module .\PowerShell.Infrastructure -Force -Verbose
 
-ConvertTo-PascalCase -InputObject "pascalCase" -Verbose
+"PASCAL CASE" | ConvertTo-PascalCase -Full
 
+"CAMEL CASE" | ConvertTo-CamelCase -Full
+
+Test-PendingReboot
 

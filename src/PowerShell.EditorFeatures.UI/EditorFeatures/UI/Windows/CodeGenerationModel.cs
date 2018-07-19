@@ -5,6 +5,8 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
+using ICSharpCode.AvalonEdit;
+
 namespace PowerShell.EditorFeatures.UI.Windows
 {
     public class CodeGenerationModel
@@ -37,5 +39,17 @@ namespace PowerShell.EditorFeatures.UI.Windows
         public bool RemoveRedundantModifyingCalls { get; set; }
 
         public bool ShortenCodeWithUsingStatic { get; set; }
+    }
+
+
+    public class TabItemModel
+    {
+        public string Header { get; set; }
+
+        public string InputText { get; set; }
+
+        public string OutputText { get; set; }
+
+
     }
 }

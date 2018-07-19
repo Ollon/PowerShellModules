@@ -64,9 +64,9 @@ namespace PowerShell.Infrastructure.Commands
             {
                 get
                 {
-                    return cmdlet.MyInvocation.BoundParameters.ContainsKey("Skip") ||
-                           cmdlet.MyInvocation.BoundParameters.ContainsKey("IncludeTotalCount") ||
-                           cmdlet.MyInvocation.BoundParameters.ContainsKey("First");
+                    return cmdlet.MyInvocation.BoundParameters.ContainsKey("Skip")
+                           || cmdlet.MyInvocation.BoundParameters.ContainsKey("IncludeTotalCount")
+                           || cmdlet.MyInvocation.BoundParameters.ContainsKey("First");
                 }
             }
 

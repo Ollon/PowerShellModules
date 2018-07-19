@@ -212,22 +212,22 @@ namespace PowerShell.EditorFeatures.Core.Parsing
             // HACK: factory methods for the following node types accept back the first "kind" parameter
             // that we filter out above. Add an artificial "property value" that can be later used to
             // satisfy the first parameter of type SyntaxKind.
-            if (node is AccessorDeclarationSyntax ||
-                node is AssignmentExpressionSyntax ||
-                node is BinaryExpressionSyntax ||
-                node is ClassOrStructConstraintSyntax ||
-                node is CheckedExpressionSyntax ||
-                node is CheckedStatementSyntax ||
-                node is ConstructorInitializerSyntax ||
-                node is GotoStatementSyntax ||
-                node is InitializerExpressionSyntax ||
-                node is LiteralExpressionSyntax ||
-                node is MemberAccessExpressionSyntax ||
-                node is OrderingSyntax ||
-                node is PostfixUnaryExpressionSyntax ||
-                node is PrefixUnaryExpressionSyntax ||
-                node is DocumentationCommentTriviaSyntax ||
-                node is YieldStatementSyntax)
+            if (node is AccessorDeclarationSyntax
+                || node is AssignmentExpressionSyntax
+                || node is BinaryExpressionSyntax
+                || node is ClassOrStructConstraintSyntax
+                || node is CheckedExpressionSyntax
+                || node is CheckedStatementSyntax
+                || node is ConstructorInitializerSyntax
+                || node is GotoStatementSyntax
+                || node is InitializerExpressionSyntax
+                || node is LiteralExpressionSyntax
+                || node is MemberAccessExpressionSyntax
+                || node is OrderingSyntax
+                || node is PostfixUnaryExpressionSyntax
+                || node is PrefixUnaryExpressionSyntax
+                || node is DocumentationCommentTriviaSyntax
+                || node is YieldStatementSyntax)
             {
                 result.Add(new ApiCall("Kind", "SyntaxKind." + node.Kind()));
             }
@@ -252,9 +252,9 @@ namespace PowerShell.EditorFeatures.Core.Parsing
                 return QuoteList((IEnumerable) value, property.Name);
             }
 
-            if (propertyType.IsGenericType &&
-                (propertyType.GetGenericTypeDefinition() == typeof(SyntaxList<>) ||
-                 propertyType.GetGenericTypeDefinition() == typeof(SeparatedSyntaxList<>)))
+            if (propertyType.IsGenericType
+                && (propertyType.GetGenericTypeDefinition() == typeof(SyntaxList<>)
+                 || propertyType.GetGenericTypeDefinition() == typeof(SeparatedSyntaxList<>)))
             {
                 return QuoteList((IEnumerable) value, property.Name);
             }
@@ -379,9 +379,9 @@ namespace PowerShell.EditorFeatures.Core.Parsing
             var arguments = new List<object>();
             string methodName = SyntaxFactoryMethod("Token");
             bool verbatim =
-                value.Text.StartsWith("@") ||
-                value.Text.Contains("\r") ||
-                value.Text.Contains("\n");
+                value.Text.StartsWith("@")
+                || value.Text.Contains("\r")
+                || value.Text.Contains("\n");
             string escapedTokenValueText = EscapeAndQuote(value.ToString(), verbatim);
             object leading = GetLeadingTrivia(value);
             object actualValue;
@@ -423,10 +423,10 @@ namespace PowerShell.EditorFeatures.Core.Parsing
                 arguments.Add(escapedTokenValueText);
                 AddIfNotNull(arguments, trailing);
             }
-            else if ((value.Kind() == SyntaxKind.XmlTextLiteralToken ||
-                      value.Kind() == SyntaxKind.XmlTextLiteralNewLineToken ||
-                      value.Kind() == SyntaxKind.XmlEntityLiteralToken) &&
-                     !value.IsMissing)
+            else if ((value.Kind() == SyntaxKind.XmlTextLiteralToken
+                      || value.Kind() == SyntaxKind.XmlTextLiteralNewLineToken
+                      || value.Kind() == SyntaxKind.XmlEntityLiteralToken)
+                     && !value.IsMissing)
             {
                 methodName = SyntaxFactoryMethod("XmlTextLiteral");
                 if (value.Kind() == SyntaxKind.XmlTextLiteralNewLineToken)
@@ -443,15 +443,15 @@ namespace PowerShell.EditorFeatures.Core.Parsing
                 arguments.Add(escapedTokenValueText);
                 arguments.Add(trailing ?? GetEmptyTrivia("TrailingTrivia"));
             }
-            else if ((value.Parent is LiteralExpressionSyntax ||
-                      value.Kind() == SyntaxKind.StringLiteralToken ||
-                      value.Kind() == SyntaxKind.NumericLiteralToken) &&
-                     value.Kind() != SyntaxKind.TrueKeyword &&
-                     value.Kind() != SyntaxKind.FalseKeyword &&
-                     value.Kind() != SyntaxKind.NullKeyword &&
-                     value.Kind() != SyntaxKind.ArgListKeyword &&
-                     value.Kind() != SyntaxKind.DefaultKeyword &&
-                     !value.IsMissing)
+            else if ((value.Parent is LiteralExpressionSyntax
+                      || value.Kind() == SyntaxKind.StringLiteralToken
+                      || value.Kind() == SyntaxKind.NumericLiteralToken)
+                     && value.Kind() != SyntaxKind.TrueKeyword
+                     && value.Kind() != SyntaxKind.FalseKeyword
+                     && value.Kind() != SyntaxKind.NullKeyword
+                     && value.Kind() != SyntaxKind.ArgListKeyword
+                     && value.Kind() != SyntaxKind.DefaultKeyword
+                     && !value.IsMissing)
             {
                 methodName = SyntaxFactoryMethod("Literal");
                 bool shouldAddTrivia = leading != null || trailing != null;
@@ -471,9 +471,9 @@ namespace PowerShell.EditorFeatures.Core.Parsing
                     escapedValue = value.ValueText;
                 }
 
-                if (shouldAddTrivia ||
-                    value.Kind() == SyntaxKind.StringLiteralToken &&
-                    value.ToString() != SyntaxFactory.Literal(value.ValueText).ToString())
+                if (shouldAddTrivia
+                    || value.Kind() == SyntaxKind.StringLiteralToken
+                    && value.ToString() != SyntaxFactory.Literal(value.ValueText).ToString())
                 {
                     arguments.Add(escapedText);
                 }
@@ -557,15 +557,15 @@ namespace PowerShell.EditorFeatures.Core.Parsing
         {
             string factoryMethodName = SyntaxFactoryMethod("Trivia");
             string text = syntaxTrivia.ToString();
-            if (syntaxTrivia.FullSpan.Length == 0 ||
-                syntaxTrivia.Kind() == SyntaxKind.WhitespaceTrivia && UseDefaultFormatting)
+            if (syntaxTrivia.FullSpan.Length == 0
+                || syntaxTrivia.Kind() == SyntaxKind.WhitespaceTrivia && UseDefaultFormatting)
             {
                 return null;
             }
 
             PropertyInfo triviaFactoryProperty = null;
-            if (triviaFactoryProperties.TryGetValue(syntaxTrivia.ToString(), out triviaFactoryProperty) &&
-                ((SyntaxTrivia) triviaFactoryProperty.GetValue(null)).Kind() == syntaxTrivia.Kind())
+            if (triviaFactoryProperties.TryGetValue(syntaxTrivia.ToString(), out triviaFactoryProperty)
+                && ((SyntaxTrivia)triviaFactoryProperty.GetValue(null)).Kind() == syntaxTrivia.Kind())
             {
                 if (UseDefaultFormatting)
                 {
@@ -575,9 +575,9 @@ namespace PowerShell.EditorFeatures.Core.Parsing
                 return new ApiCall(null, SyntaxFactoryMethod(triviaFactoryProperty.Name));
             }
 
-            if (!string.IsNullOrEmpty(text) &&
-                string.IsNullOrWhiteSpace(text) &&
-                syntaxTrivia.Kind() == SyntaxKind.WhitespaceTrivia)
+            if (!string.IsNullOrEmpty(text)
+                && string.IsNullOrWhiteSpace(text)
+                && syntaxTrivia.Kind() == SyntaxKind.WhitespaceTrivia)
             {
                 if (UseDefaultFormatting)
                 {
@@ -587,8 +587,8 @@ namespace PowerShell.EditorFeatures.Core.Parsing
                 factoryMethodName = SyntaxFactoryMethod("Whitespace");
             }
 
-            if (syntaxTrivia.Kind() == SyntaxKind.SingleLineCommentTrivia ||
-                syntaxTrivia.Kind() == SyntaxKind.MultiLineCommentTrivia)
+            if (syntaxTrivia.Kind() == SyntaxKind.SingleLineCommentTrivia
+                || syntaxTrivia.Kind() == SyntaxKind.MultiLineCommentTrivia)
             {
                 factoryMethodName = SyntaxFactoryMethod("Comment");
             }
@@ -632,19 +632,19 @@ namespace PowerShell.EditorFeatures.Core.Parsing
 
                 // if we have Block(List<StatementSyntax>(new StatementSyntax[] { A, B })), just simplify it to
                 // Block(A, B)
-                if (quotedCodeBlock != null &&
-                    factory.GetParameters().Length == 1 &&
-                    factoryMethodParameter.GetCustomAttribute<ParamArrayAttribute>() != null)
+                if (quotedCodeBlock != null
+                    && factory.GetParameters().Length == 1
+                    && factoryMethodParameter.GetCustomAttribute<ParamArrayAttribute>() != null)
                 {
                     var methodCall = quotedCodeBlock.FactoryMethodCall as MethodCall;
                     if (methodCall != null && methodCall.Name.Contains("List") && methodCall.Arguments.Count == 1)
                     {
                         var argument = methodCall.Arguments[0] as ApiCall;
                         var arrayCreation = argument.FactoryMethodCall as MethodCall;
-                        if (argument != null &&
-                            arrayCreation != null &&
-                            arrayCreation.Name.StartsWith("new ") &&
-                            arrayCreation.Name.EndsWith("[]"))
+                        if (argument != null
+                            && arrayCreation != null
+                            && arrayCreation.Name.StartsWith("new ")
+                            && arrayCreation.Name.EndsWith("[]"))
                         {
                             foreach (var arrayElement in arrayCreation.Arguments)
                             {
@@ -690,9 +690,9 @@ namespace PowerShell.EditorFeatures.Core.Parsing
                 if (parameterName == "identifier" && parameterType == typeof(string))
                 {
                     var methodCall = quotedCodeBlock.FactoryMethodCall as MethodCall;
-                    if (methodCall != null &&
-                        methodCall.Name == SyntaxFactoryMethod("Identifier") &&
-                        methodCall.Arguments.Count == 1)
+                    if (methodCall != null
+                        && methodCall.Name == SyntaxFactoryMethod("Identifier")
+                        && methodCall.Arguments.Count == 1)
                     {
                         factoryMethodCall.AddArgument(methodCall.Arguments[0]);
                         quotedValues.Remove(quotedCodeBlock);
@@ -922,8 +922,8 @@ namespace PowerShell.EditorFeatures.Core.Parsing
                 if (usingDirectiveSyntax.Alias == null)
                 {
                     candidates = candidates.Where(m =>
-                        m.ToString() !=
-                        "Microsoft.CodeAnalysis.CSharp.Syntax.UsingDirectiveSyntax UsingDirective(Microsoft.CodeAnalysis.CSharp.Syntax.NameEqualsSyntax, Microsoft.CodeAnalysis.CSharp.Syntax.NameSyntax)");
+                        m.ToString()
+                        != "Microsoft.CodeAnalysis.CSharp.Syntax.UsingDirectiveSyntax UsingDirective(Microsoft.CodeAnalysis.CSharp.Syntax.NameEqualsSyntax, Microsoft.CodeAnalysis.CSharp.Syntax.NameSyntax)");
                 }
             }
 
@@ -934,17 +934,17 @@ namespace PowerShell.EditorFeatures.Core.Parsing
             if (node is LiteralExpressionSyntax)
             {
                 SyntaxKind kind = ((LiteralExpressionSyntax) node).Kind();
-                if (kind != SyntaxKind.TrueLiteralExpression &&
-                    kind != SyntaxKind.FalseLiteralExpression &&
-                    kind != SyntaxKind.NullLiteralExpression)
+                if (kind != SyntaxKind.TrueLiteralExpression
+                    && kind != SyntaxKind.FalseLiteralExpression
+                    && kind != SyntaxKind.NullLiteralExpression)
                 {
                     minParameterCount = 2;
                 }
             }
 
             MethodInfo factory = null;
-            if (node is BaseTypeDeclarationSyntax ||
-                node is IdentifierNameSyntax)
+            if (node is BaseTypeDeclarationSyntax
+                || node is IdentifierNameSyntax)
             {
                 Type desiredParameterType = typeof(string);
                 factory = candidates.FirstOrDefault(m => m.GetParameters()[0].ParameterType == desiredParameterType);
@@ -1127,8 +1127,8 @@ namespace PowerShell.EditorFeatures.Core.Parsing
                 }
 
                 bool needNewLine = true;
-                if (methodCall.Arguments.Count == 1 &&
-                    (methodCall.Arguments[0] is string || methodCall.Arguments[0] is SyntaxKind))
+                if (methodCall.Arguments.Count == 1
+                    && (methodCall.Arguments[0] is string || methodCall.Arguments[0] is SyntaxKind))
                 {
                     needNewLine = false;
                 }

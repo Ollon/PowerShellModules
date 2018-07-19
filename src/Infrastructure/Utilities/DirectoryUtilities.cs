@@ -7,6 +7,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.DirectoryServices;
 using System.DirectoryServices.ActiveDirectory;
 
@@ -474,9 +475,9 @@ namespace PowerShell.Infrastructure.Utilities
                 dirEntry.CommitChanges();
                 dirEntry.Close();
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                //doSomething with E.Message.ToString();
+                Debug.Print(e.Message);
             }
         }
 
@@ -489,9 +490,9 @@ namespace PowerShell.Infrastructure.Utilities
                 dirEntry.CommitChanges();
                 dirEntry.Close();
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                //doSomething with E.Message.ToString();
+                Debug.Print(e.Message);
             }
         }
 
@@ -521,10 +522,10 @@ namespace PowerShell.Infrastructure.Utilities
                 newUser.Close();
                 return oGUID;
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                //DoSomethingwith --> E.Message.ToString();
-                throw new Exception();
+                Debug.Print(e.Message);
+                return string.Empty;
             }
         }
 
@@ -540,9 +541,9 @@ namespace PowerShell.Infrastructure.Utilities
                 user.CommitChanges();
                 user.Close();
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                //DoSomethingWith --> E.Message.ToString();
+                Debug.Print(e.Message);
             }
         }
 
@@ -558,9 +559,9 @@ namespace PowerShell.Infrastructure.Utilities
                 user.CommitChanges();
                 user.Close();
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                //DoSomethingWith --> E.Message.ToString();
+                Debug.Print(e.Message);
             }
         }
 
@@ -573,9 +574,9 @@ namespace PowerShell.Infrastructure.Utilities
                 uEntry.CommitChanges(); //may not be needed but adding it anyways
                 uEntry.Close();
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                //DoSomethingWith --> E.Message.ToString();
+                Debug.Print(e.Message);
             }
         }
 

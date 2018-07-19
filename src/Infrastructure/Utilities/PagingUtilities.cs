@@ -32,8 +32,8 @@ namespace PowerShell.Infrastructure.Utilities
                 else
                 {
                     ulong firstNumber = cmdlet.PagingParameters.Skip;
-                    ulong lastNumber = firstNumber +
-                                       Math.Min(
+                    ulong lastNumber = firstNumber
+                                       + Math.Min(
                                            cmdlet.PagingParameters.First,
                                            (ulong)resultsCount - cmdlet.PagingParameters.Skip
                                        );

@@ -55,10 +55,10 @@ namespace PowerShell.Infrastructure.Commands
                 else
                 {
                     ulong firstNumber = PagingParameters.Skip;
-                    ulong lastNumber = firstNumber +
-                                       Math.Min(
+                    ulong lastNumber = firstNumber
+                                       + Math.Min(
                                            PagingParameters.First,
-                                           (ulong) resultsCount - PagingParameters.Skip
+                                           (ulong)resultsCount - PagingParameters.Skip
                                        );
                     for (ulong i = firstNumber; i < lastNumber; i++)
                     {

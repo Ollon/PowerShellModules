@@ -82,9 +82,9 @@ namespace PowerShell.Infrastructure.Utilities
             bool spaceSkippingMode = false;
             int i = 0;
             int length = hexString.Length;
-            if (length >= 2 &&
-                hexString[0] == '0' &&
-                (hexString[1] == 'x' || hexString[1] == 'X'))
+            if (length >= 2
+                && hexString[0] == '0'
+                && (hexString[1] == 'x' || hexString[1] == 'X'))
             {
                 length = hexString.Length - 2;
                 i = 2;

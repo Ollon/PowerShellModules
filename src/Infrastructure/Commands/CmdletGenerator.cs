@@ -3,6 +3,8 @@ namespace PowerShell.Infrastructure
 {
     internal static partial class PowerShellFactory
     {
+        public const string EnumStructure = "EnumStructure";
+        public const string NewEnumStructureCmdlet = "New-EnumStructure";
         public const string ProductKey = "ProductKey";
         public const string GetProductKeyCmdlet = "Get-ProductKey";
         public const string Workstation = "Workstation";
@@ -32,6 +34,37 @@ namespace PowerShell.Infrastructure.Commands
     using Microsoft.Management.Infrastructure;
     using System.Management.Automation;
 
+
+    [Alias("genenum")]
+    [Cmdlet(VerbsCommon.New, EnumStructureName)]
+    public partial class NewEnumStructureCommand : AbstractPSCmdlet
+    {
+        private const string EnumStructureName = "EnumStructure";
+
+        [Parameter]
+        public string Namespace { get; set; }
+
+        [Parameter]
+        public string Name { get; set; }
+
+        [Parameter]
+        public string Verb { get; set; }
+
+        [Parameter]
+        public string EnumName { get; set; }
+
+        [Parameter]
+        public string[] EnumMembers { get; set; }
+
+        [Parameter]
+        public SwitchParameter Internal { get; set; }
+
+        [Parameter]
+        public SwitchParameter Clip { get; set; }
+
+
+        public override string ToString() => PowerShellFactory.NewEnumStructureCmdlet;
+    }
 
     [Alias("pkey")]
     [Cmdlet(VerbsCommon.Get, ProductKeyName, SupportsPaging = true)]
@@ -92,7 +125,7 @@ namespace PowerShell.Infrastructure.Commands
     {
         private const string EscapedStringName = "EscapedString";
 
-        [Parameter]
+        [Parameter(Position = 0, ValueFromPipeline = true, ValueFromPipelineByPropertyName = true, ValueFromRemainingArguments = true)]
         public PSObject InputObject { get; set; }
 
         [Parameter]
@@ -107,7 +140,7 @@ namespace PowerShell.Infrastructure.Commands
     {
         private const string EscapedStringName = "EscapedString";
 
-        [Parameter]
+        [Parameter(Position = 0, ValueFromPipeline = true, ValueFromPipelineByPropertyName = true, ValueFromRemainingArguments = true)]
         public PSObject InputObject { get; set; }
 
         [Parameter]
@@ -122,8 +155,14 @@ namespace PowerShell.Infrastructure.Commands
     {
         private const string PascalCaseName = "PascalCase";
 
-        [Parameter]
+        [Parameter(Position = 0, ValueFromPipeline = true, ValueFromPipelineByPropertyName = true, ValueFromRemainingArguments = true)]
         public PSObject InputObject { get; set; }
+
+        [Parameter]
+        public SwitchParameter Full { get; set; }
+
+        [Parameter]
+        public string IgnoreChars { get; set; }
 
 
         public override string ToString() => PowerShellFactory.ConvertToPascalCaseCmdlet;
@@ -134,8 +173,14 @@ namespace PowerShell.Infrastructure.Commands
     {
         private const string CamelCaseName = "CamelCase";
 
-        [Parameter]
+        [Parameter(Position = 0, ValueFromPipeline = true, ValueFromPipelineByPropertyName = true, ValueFromRemainingArguments = true)]
         public PSObject InputObject { get; set; }
+
+        [Parameter]
+        public SwitchParameter Full { get; set; }
+
+        [Parameter]
+        public string IgnoreChars { get; set; }
 
 
         public override string ToString() => PowerShellFactory.ConvertToCamelCaseCmdlet;
@@ -170,7 +215,6 @@ namespace PowerShell.Infrastructure.Commands
 
         [Parameter]
         public SwitchParameter All { get; set; }
-
         protected bool NameParameterSpecified
         {
             get

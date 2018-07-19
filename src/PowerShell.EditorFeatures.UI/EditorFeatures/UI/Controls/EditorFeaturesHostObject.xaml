@@ -1,11 +1,12 @@
-﻿<UserControl x:Class="PowerShell.EditorFeatures.UI.Controls.EditorFeaturesHostObject"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             Height="700"
-             d:DesignWidth="400"
-             mc:Ignorable="d">
+﻿<UserControl
+    x:Class="PowerShell.EditorFeatures.UI.Controls.EditorFeaturesHostObject"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Height="700"
+    d:DesignWidth="400"
+    mc:Ignorable="d">
 
     <UserControl.Resources>
         <ResourceDictionary>
@@ -25,34 +26,41 @@
             <RowDefinition Height="45" />
         </Grid.RowDefinitions>
         <TextBlock
-      Grid.Row="0"
-      Margin="10"
-      FontSize="24"
-      Text="Options"
-      TextAlignment="Center" />
-        <StackPanel Margin="3" Orientation="Vertical" Grid.Row="1" ScrollViewer.HorizontalScrollBarVisibility="Auto">
-            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+            Grid.Row="0"
+            Margin="10"
+            FontSize="24"
+            Text="Options"
+            TextAlignment="Center" />
+        <StackPanel
+            Grid.Row="1"
+            Margin="3"
+            Orientation="Vertical"
+            ScrollViewer.HorizontalScrollBarVisibility="Auto">
+            <StackPanel
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Orientation="Horizontal">
                 <Button
-                    Width="175"
                     x:Name="ShiftLeftButton"
-                    Click="ShiftLeftButton_Click" HorizontalAlignment="Left">
+                    Width="175"
+                    HorizontalAlignment="Left"
+                    Click="ShiftLeftButton_Click">
                     <Button.ToolTip>Shift Text Left 1 Space</Button.ToolTip>
-                    <Image Source="/PowerShell.EditorFeatures.UI;component/EditorFeatures/Resources/TextLeft.png" />
+                    <Image Source="/PowerShell.EditorFeatures.UI;component/Resources/TextLeft.png" />
                 </Button>
                 <Button
-                    Width="175"
                     x:Name="ShiftRightButton"
+                    Width="175"
                     Click="ShiftRightButton_Click">
                     <Button.ToolTip>Shift Text Right 1 Space</Button.ToolTip>
-                    <Image Source="/PowerShell.EditorFeatures.UI;component/EditorFeatures/Resources/TextRight.png" />
+                    <Image Source="/PowerShell.EditorFeatures.UI;component/Resources/TextRight.png" />
                 </Button>
             </StackPanel>
 
             <Button
                 x:Name="PasteAsStringBuilderButton"
                 Click="OnPasteAsStringBuilderButton_Click"
-                Content="Paste As String Builder"
-               >
+                Content="Paste As String Builder">
                 <Button.ToolTip>Paste As StringBuilder</Button.ToolTip>
             </Button>
 
@@ -72,34 +80,32 @@
 
             <Button
                 x:Name="EncloseWithTextWriterButton"
-               Click="EncloseWithTextWriterButton_Click"
-                Content="Enclose With TextWriter"
-                >
+                Click="EncloseWithTextWriterButton_Click"
+                Content="Enclose With TextWriter">
                 <Button.ToolTip>Enclose With TextWriter</Button.ToolTip>
             </Button>
-            
+
             <Button
                 x:Name="EncloseWithXmlTextWriterButton"
                 Click="EncloseWithXmlTextWriterButton_Click"
-                Content="Enclose With XmlTextWriter"
-                >
+                Content="Enclose With XmlTextWriter">
                 <Button.ToolTip>Enclose With XmlTextWriter</Button.ToolTip>
             </Button>
             <Button x:Name="RemoveEmptyLinesButton" Click="OnRemoveEmptyLinesButton_Click">
                 <Button.ToolTip>Remove empty lines from the active document.</Button.ToolTip>
-                <Image Source="/PowerShell.EditorFeatures.UI;component/EditorFeatures/Resources/RemoveEmptyLines.png" />
+                <Image Source="/PowerShell.EditorFeatures.UI;component/Resources/RemoveEmptyLines.png" />
             </Button>
             <Button x:Name="GenerateCodeButton" Click="OnGenerateCodeButton_Click">
                 <Button.ToolTip>Open Code Generation Window</Button.ToolTip>
-                <Image Source="/PowerShell.EditorFeatures.UI;component/EditorFeatures/Resources/GenerateFile.png" />
+                <Image Source="/PowerShell.EditorFeatures.UI;component/Resources/GenerateFile.png" />
             </Button>
             <Button x:Name="RestartPowerShellButton" Click="OnRestartPowerShellButton_Click">
                 <Button.ToolTip>Restart PowerShell ISE</Button.ToolTip>
-                <Image Source="/PowerShell.EditorFeatures.UI;component/EditorFeatures/Resources/Restart.png" />
+                <Image Source="/PowerShell.EditorFeatures.UI;component/Resources/Restart.png" />
             </Button>
             <Button x:Name="CloseAllTabsButton" Click="OnCloseAllTabsButton_Click">
                 <Button.ToolTip>Force close all documents in the editor.</Button.ToolTip>
-                <Image Source="/PowerShell.EditorFeatures.UI;component/EditorFeatures/Resources/Close.png" />
+                <Image Source="/PowerShell.EditorFeatures.UI;component/Resources/Close.png" />
             </Button>
         </StackPanel>
     </Grid>

@@ -1,0 +1,56 @@
+<xs:schema targetNamespace="http://schemas.microsoft.com/cmdlets-over-objects/2009/11"
+           xmlns="http://schemas.microsoft.com/cmdlets-over-objects/2009/11"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+
+  <xs:attributeGroup name="ClassMetadataAttributeGroup">
+    <xs:attribute name="CmdletAdapter" type="xs:string" />
+    <xs:attribute name="ClassName" type="xs:string" />
+    <xs:attribute name="ClassVersion" type="xs:string" />
+  </xs:attributeGroup>
+  
+  
+  <xs:element name="Version" type="xs:string" />
+  <xs:element name="DefaultNoun" type="xs:string" />
+
+
+  <xs:element name="Data" type="Data" />
+  <xs:complexType name="Data">
+    <xs:sequence></xs:sequence>
+  </xs:complexType>
+
+
+  <xs:element name="Cmdlet" type="Cmdlet" />
+  <xs:complexType name="Cmdlet">
+    <xs:sequence></xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="InstanceCmdlets" type="InstanceCmdlets" />
+  <xs:complexType name="InstanceCmdlets">
+    <xs:sequence></xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="CmdletMetadata" type="CmdletMetadata" />
+  <xs:complexType name="CmdletMetadata">
+    <xs:sequence></xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="ClassMetadata" type="ClassMetadata" />
+  <xs:complexType name="ClassMetadata">
+    <xs:sequence>
+      <xs:element ref="Version" />
+      <xs:element ref="DefaultNoun" />
+      <xs:element ref="InstanceCmdlets" />
+    </xs:sequence>
+    <xs:attributeGroup ref="ClassMetadataAttributeGroup" />
+  </xs:complexType>
+
+  <xs:element name="PowerShellMetadata" type="PowerShellMetadata" />
+  <xs:complexType name="PowerShellMetadata">
+    <xs:sequence></xs:sequence>
+  </xs:complexType>
+  
+
+</xs:schema>

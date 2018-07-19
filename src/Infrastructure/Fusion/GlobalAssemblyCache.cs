@@ -7,6 +7,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Reflection;
 using System.Runtime.InteropServices;
@@ -296,8 +297,9 @@ namespace PowerShell.Infrastructure.Fusion
                 {
                     list.Add(Assembly.ReflectionOnlyLoad(enumerator.Current.FullName));
                 }
-                catch (Exception)
+                catch (Exception e)
                 {
+                    Debug.Print(e.Message);
                 }
             }
             return list;

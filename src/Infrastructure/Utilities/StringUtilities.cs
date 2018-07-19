@@ -21,22 +21,20 @@ namespace PowerShell.Infrastructure.Utilities
 
         public static string MakePascal(string inString, bool firstCharacterOnly = false)
         {
-            int count = inString.Length;
             string firstChar = inString[0].ToString().ToUpper();
             StringBuilder builder = new StringBuilder();
             builder.Append(firstChar);
-            string restOfString = inString.Substring(1, count - 1);
+            string restOfString = inString.Substring(1);
             builder.Append(!firstCharacterOnly ? restOfString.ToLower() : restOfString);
             return builder.ToString();
         }
 
         public static string MakeCamel(string inString, bool firstCharacterOnly = false)
         {
-            int count = inString.Length;
             string firstChar = inString[0].ToString().ToLower();
             StringBuilder builder = new StringBuilder();
             builder.Append(firstChar);
-            string restOfString = inString.Substring(1, count - 1);
+            string restOfString = inString.Substring(1);
             builder.Append(!firstCharacterOnly ? restOfString.ToLower() : restOfString);
             return builder.ToString();
         }
@@ -94,8 +92,8 @@ namespace PowerShell.Infrastructure.Utilities
 
         public static string RemoveQuotes(this string InputTxt)
         {
-            if (!InputTxt.StartsWith("\"", StringComparison.Ordinal) ||
-                !InputTxt.EndsWith("\"", StringComparison.Ordinal))
+            if (!InputTxt.StartsWith("\"", StringComparison.Ordinal)
+                || !InputTxt.EndsWith("\"", StringComparison.Ordinal))
             {
                 return InputTxt;
             }

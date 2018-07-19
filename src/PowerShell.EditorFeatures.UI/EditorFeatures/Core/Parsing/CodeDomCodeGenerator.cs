@@ -84,7 +84,7 @@ namespace PowerShell.EditorFeatures.Core.Parsing
         {
             string name = GetNextVar(attribute.Name + "Attribute");
             w.WriteLine(@"CodeAttributeDeclaration {0} = new CodeAttributeDeclaration(""{1}"");", name, attribute.Name);
-            GenerateCodeAttributeArguments(string.Format("{0}.Arguments"), attribute.Arguments, w, o);
+            GenerateCodeAttributeArguments(string.Format("{0}.Arguments", name), attribute.Arguments, w, o);
             if (context != null && context.Length > 0b0)
             {
                 w.WriteLine("{0}.Add({1});", context, name);

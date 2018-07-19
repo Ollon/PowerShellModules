@@ -1,6 +1,45 @@
 {
   "cmdlets": [
     {
+      "verb": "New",
+      "noun": "EnumStructure",
+      "alias": "genenum",
+      "paging": false,
+      "parameterSet": null,
+      "process": false,
+      "transactions": false,
+      "params": [
+        {
+          "name": "Namespace",
+          "type": "string"
+        },
+        {
+          "name": "Name",
+          "type": "string"
+        },
+        {
+          "name": "Verb",
+          "type": "string"
+        },
+        {
+          "name": "EnumName",
+          "type": "string"
+        },
+        {
+          "name": "EnumMembers",
+          "type": "string[]"
+        },
+        {
+          "name": "Internal",
+          "type": "SwitchParameter"
+        },
+        {
+          "name": "Clip",
+          "type": "SwitchParameter"
+        }
+      ]
+    },
+    {
       "verb": "Get",
       "noun": "ProductKey",
       "alias": "pkey",
@@ -11,19 +50,19 @@
       "params": [
         {
           "name": "ProductKey",
-          "type": "ProductKey" 
+          "type": "ProductKey"
         },
         {
           "name": "All",
-          "type": "SwitchParameter" 
+          "type": "SwitchParameter"
         }
-      ] 
+      ]
     },
     {
       "verb": "Stop",
       "noun": "Workstation",
       "alias": "off",
-      "process": true, 
+      "process": true,
       "params": [
         {
           "name": "ComputerName",
@@ -31,19 +70,19 @@
         },
         {
           "name": "Credential",
-          "type": "PSCredential" 
+          "type": "PSCredential"
         },
         {
           "name": "Force",
-          "type": "SwitchParameter" 
+          "type": "SwitchParameter"
         }
-      ] 
+      ]
     },
     {
       "verb": "Restart",
       "noun": "Workstation",
       "alias": "reboot",
-      "process": true, 
+      "process": true,
       "params": [
         {
           "name": "ComputerName",
@@ -51,89 +90,121 @@
         },
         {
           "name": "Credential",
-          "type": "PSCredential" 
+          "type": "PSCredential"
         },
         {
           "name": "Force",
-          "type": "SwitchParameter" 
+          "type": "SwitchParameter"
         }
-      ] 
+      ]
     },
     {
       "verb": "ConvertFrom",
-      "noun":  "EscapedString",
+      "noun": "EscapedString",
       "alias": "",
-      "params":  [
+      "params": [
         {
           "name": "InputObject",
-          "type":  "PSObject"
+          "type": "PSObject",
+          "firstPosition": true,
+          "valueFromPipeLine": true,
+          "valueFromPipeLineByPropertyName": true,
+          "valueFromRemainingArguments": true
         },
         {
-          "name":  "Style",
-          "type":  "EscapeStyle" 
+          "name": "Style",
+          "type": "EscapeStyle"
         }
-      ] 
+      ]
     },
     {
       "verb": "ConvertTo",
-      "noun":  "EscapedString",
+      "noun": "EscapedString",
       "alias": "",
-      "params":  [
+      "params": [
         {
           "name": "InputObject",
-          "type":  "PSObject"
+          "type": "PSObject",
+          "firstPosition": true,
+          "valueFromPipeLine": true,
+          "valueFromPipeLineByPropertyName": true,
+          "valueFromRemainingArguments": true
         },
         {
-          "name":  "Style",
-          "type":  "EscapeStyle" 
+          "name": "Style",
+          "type": "EscapeStyle"
         }
-      ] 
+      ]
     },
     {
       "verb": "ConvertTo",
-      "noun":  "PascalCase",
+      "noun": "PascalCase",
       "alias": "",
-      "params":  [
+      "params": [
         {
           "name": "InputObject",
-          "type":  "PSObject"
+          "type": "PSObject",
+          "firstPosition": true,
+          "valueFromPipeLine": true,
+          "valueFromPipeLineByPropertyName": true,
+          "valueFromRemainingArguments": true
+        },
+        {
+          "name": "Full",
+          "type": "SwitchParameter"
+        },
+        {
+          "name": "IgnoreChars",
+          "type": "string"
         }
-      ] 
+      ]
     },
     {
       "verb": "ConvertTo",
-      "noun":  "CamelCase",
+      "noun": "CamelCase",
       "alias": "",
-      "params":  [
+      "params": [
         {
           "name": "InputObject",
-          "type":  "PSObject"
+          "type": "PSObject",
+          "firstPosition": true,
+          "valueFromPipeLine": true,
+          "valueFromPipeLineByPropertyName": true,
+          "valueFromRemainingArguments": true
+        },
+        {
+          "name": "Full",
+          "type": "SwitchParameter"
+        },
+        {
+          "name": "IgnoreChars",
+          "type": "string"
         }
-      ] 
+      ]
     },
     {
       "verb": "Resolve",
-      "noun":  "Assembly",
+      "noun": "Assembly",
       "alias": "",
-      "params":  [
+      "params": [
         {
           "name": "Path",
-          "type":  "string",
+          "type": "string",
           "set": "Path"
         },
         {
           "name": "PartialName",
           "type": "string",
-          "set": "PartialName" 
+          "set": "PartialName"
         }
-      ] 
+      ]
     },
     {
       "verb": "Get",
       "noun": "Assembly",
       "alias": "gasm",
-      "paging": true, 
-      "dynamic":  true, 
+      "paging": true,
+      "dynamic": true,
       "params": [
         {
           "name": "Load",
@@ -154,9 +225,9 @@
           "name": "Name",
           "type": "string",
           "mandatory": false,
-          "dynamic":  true 
+          "dynamic": true
         }
-      ] 
+      ]
     },
     {
       "verb": "Register",
@@ -178,23 +249,23 @@
     {
       "verb": "Unregister",
       "noun": "Assembly",
-      "dynamic": true, 
+      "dynamic": true,
       "alias": "uasm",
       "params": [
         {
           "name": "Path",
           "type": "string",
           "mandatory": false,
-          "set": "ByPath" 
+          "set": "ByPath"
         },
         {
           "name": "Name",
-          "type":  "string",
+          "type": "string",
           "mandatory": false,
           "dynamic": true,
-          "set": "ByName" 
+          "set": "ByName"
         }
-      ] 
+      ]
     },
     {
       "verb": "Test",
@@ -203,23 +274,23 @@
       "params": [
         {
           "name": "ComputerName",
-          "type":  "string",
+          "type": "string",
           "mandatory": false,
           "dynamic": false
         },
         {
           "name": "Credential",
-          "type":  "PSCredential",
+          "type": "PSCredential",
           "mandatory": false,
           "dynamic": false
         },
         {
           "name": "Force",
-          "type":  "SwitchParameter",
+          "type": "SwitchParameter",
           "mandatory": false,
           "dynamic": false
         }
-      ] 
+      ]
     }
   ]
 }

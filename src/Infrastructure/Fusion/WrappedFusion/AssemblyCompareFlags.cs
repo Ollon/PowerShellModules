@@ -25,14 +25,14 @@ namespace PowerShell.Infrastructure.Fusion.WrappedFusion
         PUBLIC_KEY_TOKEN = 0x20,
         CULTURE = 0x40,
         CUSTOM = 0x80,
-        ALL = NAME |
-              MAJOR_VERSION |
-              MINOR_VERSION |
-              REVISION_NUMBER |
-              BUILD_NUMBER |
-              PUBLIC_KEY_TOKEN |
-              CULTURE |
-              CUSTOM,
+        ALL = NAME
+              | MAJOR_VERSION
+              | MINOR_VERSION
+              | REVISION_NUMBER
+              | BUILD_NUMBER
+              | PUBLIC_KEY_TOKEN
+              | CULTURE
+              | CUSTOM,
         DEFAULT = 0x100
     }
 }

@@ -207,6 +207,28 @@ Copyright (c) Ollon, LLC. All rights reserved.
     <StartProgram Condition="'$(DevEnvDir)' != ''">$(DevEnvDir)devenv.exe</StartProgram>
     <StartArguments>/rootsuffix Exp</StartArguments>
   </PropertyGroup>
+  
+  <PropertyGroup>
+    <ModuleFolder>$(OutputPath)\$(AssemblyName)\</ModuleFolder>
+    <DestinationModuleManifest>$(ModuleFolder)$(AssemblyName).psd1</DestinationModuleManifest>
+  </PropertyGroup>
+  
+  <PropertyGroup Condition="'$(IsPowerShellProject)'=='true'">
+    <CleanDependsOn>
+      $(CleanDependsOn);
+      PowerShellModuleClean;
+    </CleanDependsOn>
+  </PropertyGroup>
+  
+  <Target Name="PowerShellModuleClean">
+    <ItemGroup>
+      <RemoveFiles Include="$(OutputPath)\**\*" />
+    </ItemGroup>
+    <RemoveDir Directories="$(ModuleFolder)" />
+    <Delete Files="@(RemoveFiles)" />
+    <Message Importance="high" Text="@(RemoveFiles->'Removing file %(Filename)%0A')" />
+    <Message Importance="high" Text="PowerShellModuleClean Executed Successfully!" />
+  </Target>
 
   <Target Name="CreateDebuggableModule" AfterTargets="AfterBuild" Condition="'$(IsPowerShellProject)'=='true'">
     <PropertyGroup>
@@ -402,7 +424,9 @@ Copyright (c) Ollon, LLC. All rights reserved.
 
       File="$(MSBuildProjectFullPath)" />
   </Target>
+
   <Import Project="$(CustomAfterCentralPackageVersionsTargets)" Condition=" '$(CustomAfterCentralPackageVersionsTargets)' != '' And Exists('$(CustomAfterCentralPackageVersionsTargets)') " />
+
 
 
 </Project>

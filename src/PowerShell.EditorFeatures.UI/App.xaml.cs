@@ -4,6 +4,10 @@ using System.Linq;
 using System.Windows;
 using PowerShell.EditorFeatures.Core.Host;
 
+
+
+[assembly: ThemeInfo(ResourceDictionaryLocation.SourceAssembly, ResourceDictionaryLocation.None)]
+
 namespace PowerShell
 {
     /// <summary>
@@ -16,13 +20,8 @@ namespace PowerShell
 
         private void OnAppStartup(object sender, StartupEventArgs e)
         {
-            MainWindow window = new MainWindow();
 
 
-            if (window.ShowDialog() == true)
-            {
-
-            }
 
         }
     }

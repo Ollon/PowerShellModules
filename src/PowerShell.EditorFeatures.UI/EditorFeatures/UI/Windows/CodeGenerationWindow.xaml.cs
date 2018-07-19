@@ -194,8 +194,13 @@ namespace PowerShell.EditorFeatures.UI.Windows
                 ShortenCodeWithUsingStatic = _viewModel.ShortenCodeWithUsingStatic,
                 RemoveRedundantModifyingCalls = _viewModel.RemoveRedundantModifyingCalls
             };
+            OutputTabItem.SetValue(TabItem.IsSelectedProperty, true);
+            OutputDocument.Text = quoter.Quote(InputDocument.Text);
+            OutputTextEditor.Focus();
+        }
 
-
+        private void OnGenerateEnumStructure_Click(object sender, RoutedEventArgs e)
+        {
 
         }
     }

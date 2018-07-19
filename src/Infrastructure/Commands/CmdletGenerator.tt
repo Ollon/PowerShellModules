@@ -14,6 +14,11 @@
 
     Cmdlets cmdlets = JsonConvert.DeserializeObject<Cmdlets>(System.IO.File.ReadAllText(path));
 
+    foreach(Cmdlet cmdlet in cmdlets.cmdlets)
+    {
+        cmdlet.Init();
+    }
+
     WriteMain(cmdlets);
     WriteCommands(cmdlets);
 
@@ -82,28 +87,65 @@
                 {
                     WriteLine("");
                     Write("[Parameter");
-                    bool paren = false;
+
+                    if (parameter.RequiresParenthesis)
+                    {
+                        Write("(");
+                    }
+
                     bool comma = false;
+
                     if (parameter.Mandatory)
                     {
                         comma = true;
-                        paren = true;
-                        Write("(Mandatory = true");
+                        Write("Mandatory = true");
                     }
+                    if (parameter.FirstPosition)
+                    {
+                        if (comma)
+                        {
+                            Write(", ");
+                        }
+                        Write($"Position = 0");
+                        comma = true;
+                    }
+
                     if (!string.IsNullOrEmpty(parameter.Set))
                     {
                         if (comma)
                         {
                             Write(", ");
                         }
-                        if (!paren)
-                        {
-                            paren = true;
-                            Write("(");
-                        }
                         Write($"ParameterSetName = \"{parameter.Set}\"");
+                        comma = true;
                     }
-                    if (paren)
+                    if (parameter.ValueFromPipeline)
+                    {
+                        if (comma)
+                        {
+                            Write(", ");
+                        }
+                        Write($"ValueFromPipeline = true");
+                        comma = true;
+                    }
+                    if (parameter.ValueFromPipelineByPropertyName)
+                    {
+                        if (comma)
+                        {
+                            Write(", ");
+                        }
+                        Write($"ValueFromPipelineByPropertyName = true");
+                        comma = true;
+                    }
+                    if (parameter.ValueFromRemainingArguments)
+                    {
+                        if (comma)
+                        {
+                            Write(", ");
+                        }
+                        Write($"ValueFromRemainingArguments = true");
+                    }
+                    if (parameter.RequiresParenthesis)
                     {
                         Write(")");
                     }
@@ -322,10 +364,22 @@
         public string ParameterSet { get; set; }
 
         public List<Parameter> Params { get; set; }
+
+        public void Init()
+        {
+            for (int i = 0; i < Params.Count; i++)
+            {
+                Params[i].Id = i;
+            }
+        }
     }
 
     public class Parameter
     {
+        public int Id { get; set; }
+
+        public bool FirstPosition { get; set; }
+
         public string Name { get; set; }
 
         public string Type { get; set; }
@@ -335,6 +389,24 @@
         public string Set { get; set; }
 
         public bool Mandatory { get; set; }
+
+        public bool ValueFromPipeline { get; set; }
+
+        public bool ValueFromPipelineByPropertyName { get; set; }
+
+        public bool ValueFromRemainingArguments { get; set; }
+
+        public bool RequiresParenthesis 
+        {
+            get
+            {
+                return !string.IsNullOrEmpty(Set) 
+                || Mandatory 
+                || ValueFromPipeline
+                || ValueFromPipelineByPropertyName
+                || ValueFromRemainingArguments;
+            }
+        }
     }
 
 

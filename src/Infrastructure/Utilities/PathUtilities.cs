@@ -8,7 +8,7 @@ using System.IO;
 
 namespace PowerShell.Infrastructure.Utilities
 {
-    public class PathUtilities
+    public static class PathUtilities
     {
         public static void CreateDirectoryIfNecessary(params string[] paths)
         {

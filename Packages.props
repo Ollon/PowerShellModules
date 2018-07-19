@@ -69,17 +69,17 @@
     <PackageVersion Include="NuGet.Common" Version="[4.7.0-preview1-4986]" />
     <PackageVersion Include="NuGet.Protocol.Core.Types" Version="[4.3.0-beta1-2418]" />
     <PackageVersion Include="NuGet.Protocol.Core.V3" Version="[4.3.0-beta1-2418]" />
-    <PackageVersion Include="Microsoft.CodeAnalysis" Version="[2.7.0]" />
-    <PackageVersion Include="Microsoft.CodeAnalysis.CSharp" Version="[2.7.0]" />
-    <PackageVersion Include="Microsoft.CodeAnalysis.Workspaces" Version="[1.0.0-beta1-20141031-01]" />
-    <PackageVersion Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="[2.7.0]" />
-    <PackageVersion Include="Microsoft.CodeAnalysis.EditorFeatures" Version="[2.7.0]" />
-    <PackageVersion Include="Microsoft.CodeAnalysis.EditorFeatures.Text" Version="[2.7.0]" />
-    <PackageVersion Include="Microsoft.CodeAnalysis.Scripting" Version="[2.7.0]" />
-    <PackageVersion Include="Microsoft.CodeAnalysis.CSharp.Scripting" Version="[2.7.0]" />
-    <PackageVersion Include="Microsoft.CodeAnalysis.Features" Version="[2.7.0]" />
-    <PackageVersion Include="Microsoft.CodeAnalysis.CSharp.Features" Version="[2.7.0]" />
-    <PackageVersion Include="Microsoft.VisualStudio.LanguageServices" Version="[2.7.0]" />
+    <PackageVersion Include="Microsoft.CodeAnalysis" Version="2.8.2" />
+    <PackageVersion Include="Microsoft.CodeAnalysis.CSharp" Version="2.8.2" />
+    <PackageVersion Include="Microsoft.CodeAnalysis.Workspaces" Version="2.8.2" />
+    <PackageVersion Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version=" 2.8.2" />
+    <PackageVersion Include="Microsoft.CodeAnalysis.EditorFeatures" Version=" 2.8.2" />
+    <PackageVersion Include="Microsoft.CodeAnalysis.EditorFeatures.Text" Version=" 2.8.2" />
+    <PackageVersion Include="Microsoft.CodeAnalysis.Scripting" Version=" 2.8.2" />
+    <PackageVersion Include="Microsoft.CodeAnalysis.CSharp.Scripting" Version=" 2.8.2" />
+    <PackageVersion Include="Microsoft.CodeAnalysis.Features" Version=" 2.8.2" />
+    <PackageVersion Include="Microsoft.CodeAnalysis.CSharp.Features" Version=" 2.8.2" />
+    <PackageVersion Include="Microsoft.VisualStudio.LanguageServices" Version=" 2.8.2" />
     <PackageVersion Include="Microsoft.VisualStudio.ComponentModelHost" Version="[15.6.27413]" />
     <PackageVersion Include="Microsoft.VisualStudio.CoreUtility" Version="[15.6.27413]" />
     <PackageVersion Include="Microsoft.VisualStudio.Data.Core" Version="[9.0.21023]" />

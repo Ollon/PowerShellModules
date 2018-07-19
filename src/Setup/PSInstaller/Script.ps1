@@ -2,7 +2,7 @@
 $sw = [System.IO.StringWriter]::new($sb)
 $w  = [System.CodeDom.Compiler.IndentedTextWriter]::new($sw)
 $w.Indent = 1
-Get-ChildItem -File -Path 'C:\Stage\git\PowerShellModules\bin\Debug\PowerShell.EditorFeatures.UI\PowerShell.EditorFeatures.UI' | ForEach-Object -Process {
+Get-ChildItem -File -Path 'C:\stage\workspaces\github\PowerShellModules\bin\Debug\PowerShell.EditorFeatures.UI' | ForEach-Object -Process {
     $File = $_
     $FileName = "FILE_$($File.Name.Replace('.',''))"
     $w.WriteLine("        <File Id=`"$FileName`"")

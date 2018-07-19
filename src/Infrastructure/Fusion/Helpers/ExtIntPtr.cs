@@ -308,8 +308,8 @@ namespace PowerShell.Infrastructure.Fusion.Helpers
         /// <returns></returns>
         private static bool IsSequential(this Type type)
         {
-            return !type.IsGenericType &&
-                   ((type.Attributes & TypeAttributes.SequentialLayout) != 0 || (type.Attributes & TypeAttributes.ExplicitLayout) != 0);
+            return !type.IsGenericType
+                   && ((type.Attributes & TypeAttributes.SequentialLayout) != 0 || (type.Attributes & TypeAttributes.ExplicitLayout) != 0);
         }
 
         #endregion
