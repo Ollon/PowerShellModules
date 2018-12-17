@@ -3,6 +3,8 @@ namespace PowerShell.Infrastructure
 {
     internal static partial class PowerShellFactory
     {
+        public const string String = "String";
+        public const string SplitStringCmdlet = "Split-String";
         public const string EnumStructure = "EnumStructure";
         public const string NewEnumStructureCmdlet = "New-EnumStructure";
         public const string ProductKey = "ProductKey";
@@ -34,6 +36,22 @@ namespace PowerShell.Infrastructure.Commands
     using Microsoft.Management.Infrastructure;
     using System.Management.Automation;
 
+
+    [Alias("split")]
+    [Cmdlet(VerbsCommon.Split, StringName)]
+    public partial class SplitStringCommand : AbstractPSCmdlet
+    {
+        private const string StringName = "String";
+
+        [Parameter(Position = 0, ValueFromPipeline = true, ValueFromPipelineByPropertyName = true, ValueFromRemainingArguments = true)]
+        public string String { get; set; }
+
+        [Parameter]
+        public string Delimeter { get; set; }
+
+
+        public override string ToString() => PowerShellFactory.SplitStringCmdlet;
+    }
 
     [Alias("genenum")]
     [Cmdlet(VerbsCommon.New, EnumStructureName)]

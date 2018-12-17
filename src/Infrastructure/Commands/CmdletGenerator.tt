@@ -1,6 +1,6 @@
 ﻿<#@ template debug="true" hostspecific="true" language="C#" #>
 <#@ assembly name="System.Core" #>
-<#@ assembly name="$(USERPROFILE)\.nuget\packages\newtonsoft.json\11.0.2\lib\net45\Newtonsoft.Json.dll" #>
+<#@ assembly name="$(USERPROFILE)\.nuget\packages\newtonsoft.json\12.0.1\lib\net45\Newtonsoft.Json.dll" #>
 <#@ import namespace="Newtonsoft.Json" #>
 <#@ import namespace="System" #>
 <#@ import namespace="System.Linq" #>

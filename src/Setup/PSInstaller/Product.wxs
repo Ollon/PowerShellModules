@@ -91,20 +91,28 @@
               Source="$(var.PowerShell.EditorFeatures.UI.TargetDir)\PowerShell.EditorFeatures.UI\ICSharpCode.NRefactory.CSharp.dll" />
         <File Id="FILE_ICSharpCodeNRefactorydll"
               Source="$(var.PowerShell.EditorFeatures.UI.TargetDir)\PowerShell.EditorFeatures.UI\ICSharpCode.NRefactory.dll" />
+        <File Id="FILE_MicrosoftBuilddll"
+              Source="$(var.PowerShell.EditorFeatures.UI.TargetDir)\PowerShell.EditorFeatures.UI\Microsoft.Build.dll" />
+        <File Id="FILE_MicrosoftBuildFrameworkdll"
+              Source="$(var.PowerShell.EditorFeatures.UI.TargetDir)\PowerShell.EditorFeatures.UI\Microsoft.Build.Framework.dll" />
+        <File Id="FILE_MicrosoftBuildTasksCoredll"
+              Source="$(var.PowerShell.EditorFeatures.UI.TargetDir)\PowerShell.EditorFeatures.UI\Microsoft.Build.Tasks.Core.dll" />
+        <File Id="FILE_MicrosoftBuildUtilitiesCoredll"
+              Source="$(var.PowerShell.EditorFeatures.UI.TargetDir)\PowerShell.EditorFeatures.UI\Microsoft.Build.Utilities.Core.dll" />
         <File Id="FILE_MicrosoftCodeAnalysisCSharpdll"
               Source="$(var.PowerShell.EditorFeatures.UI.TargetDir)\PowerShell.EditorFeatures.UI\Microsoft.CodeAnalysis.CSharp.dll" />
-        <File Id="FILE_MicrosoftCodeAnalysisCSharpFeaturesdll"
-              Source="$(var.PowerShell.EditorFeatures.UI.TargetDir)\PowerShell.EditorFeatures.UI\Microsoft.CodeAnalysis.CSharp.Features.dll" />
         <File Id="FILE_MicrosoftCodeAnalysisCSharpScriptingdll"
               Source="$(var.PowerShell.EditorFeatures.UI.TargetDir)\PowerShell.EditorFeatures.UI\Microsoft.CodeAnalysis.CSharp.Scripting.dll" />
         <File Id="FILE_MicrosoftCodeAnalysisCSharpWorkspacesdll"
               Source="$(var.PowerShell.EditorFeatures.UI.TargetDir)\PowerShell.EditorFeatures.UI\Microsoft.CodeAnalysis.CSharp.Workspaces.dll" />
         <File Id="FILE_MicrosoftCodeAnalysisdll"
               Source="$(var.PowerShell.EditorFeatures.UI.TargetDir)\PowerShell.EditorFeatures.UI\Microsoft.CodeAnalysis.dll" />
-        <File Id="FILE_MicrosoftCodeAnalysisFeaturesdll"
-              Source="$(var.PowerShell.EditorFeatures.UI.TargetDir)\PowerShell.EditorFeatures.UI\Microsoft.CodeAnalysis.Features.dll" />
         <File Id="FILE_MicrosoftCodeAnalysisScriptingdll"
               Source="$(var.PowerShell.EditorFeatures.UI.TargetDir)\PowerShell.EditorFeatures.UI\Microsoft.CodeAnalysis.Scripting.dll" />
+        <File Id="FILE_MicrosoftCodeAnalysisVisualBasicdll"
+              Source="$(var.PowerShell.EditorFeatures.UI.TargetDir)\PowerShell.EditorFeatures.UI\Microsoft.CodeAnalysis.VisualBasic.dll" />
+        <File Id="FILE_MicrosoftCodeAnalysisVisualBasicWorkspacesdll"
+              Source="$(var.PowerShell.EditorFeatures.UI.TargetDir)\PowerShell.EditorFeatures.UI\Microsoft.CodeAnalysis.VisualBasic.Workspaces.dll" />
         <File Id="FILE_MicrosoftCodeAnalysisWorkspacesDesktopdll"
               Source="$(var.PowerShell.EditorFeatures.UI.TargetDir)\PowerShell.EditorFeatures.UI\Microsoft.CodeAnalysis.Workspaces.Desktop.dll" />
         <File Id="FILE_MicrosoftCodeAnalysisWorkspacesdll"
@@ -131,6 +139,12 @@
               Source="$(var.PowerShell.EditorFeatures.UI.TargetDir)\PowerShell.EditorFeatures.UI\Mono.Cecil.Rocks.dll" />
         <File Id="FILE_PowerShellEditorFeaturesUIdll"
               Source="$(var.PowerShell.EditorFeatures.UI.TargetDir)\PowerShell.EditorFeatures.UI\PowerShell.EditorFeatures.UI.dll" />
+        <File Id="FILE_SQLitePCLRawbatteries_v2dll"
+              Source="$(var.PowerShell.EditorFeatures.UI.TargetDir)\PowerShell.EditorFeatures.UI\SQLitePCLRaw.batteries_v2.dll" />
+        <File Id="FILE_SQLitePCLRawcoredll"
+              Source="$(var.PowerShell.EditorFeatures.UI.TargetDir)\PowerShell.EditorFeatures.UI\SQLitePCLRaw.core.dll" />
+        <File Id="FILE_SQLitePCLRawprovidere_sqlite3dll"
+              Source="$(var.PowerShell.EditorFeatures.UI.TargetDir)\PowerShell.EditorFeatures.UI\SQLitePCLRaw.provider.e_sqlite3.dll" />
         <File Id="FILE_SystemCollectionsImmutabledll"
               Source="$(var.PowerShell.EditorFeatures.UI.TargetDir)\PowerShell.EditorFeatures.UI\System.Collections.Immutable.dll" />
         <File Id="FILE_SystemCompositionAttributedModeldll"
@@ -147,10 +161,14 @@
               Source="$(var.PowerShell.EditorFeatures.UI.TargetDir)\PowerShell.EditorFeatures.UI\System.IO.Compression.dll" />
         <File Id="FILE_SystemManagementAutomationdll"
               Source="$(var.PowerShell.EditorFeatures.UI.TargetDir)\PowerShell.EditorFeatures.UI\System.Management.Automation.dll" />
+        <File Id="FILE_SystemNetHttpdll"
+              Source="$(var.PowerShell.EditorFeatures.UI.TargetDir)\PowerShell.EditorFeatures.UI\System.Net.Http.dll" />
         <File Id="FILE_SystemReflectionMetadatadll"
               Source="$(var.PowerShell.EditorFeatures.UI.TargetDir)\PowerShell.EditorFeatures.UI\System.Reflection.Metadata.dll" />
         <File Id="FILE_SystemTextEncodingCodePagesdll"
               Source="$(var.PowerShell.EditorFeatures.UI.TargetDir)\PowerShell.EditorFeatures.UI\System.Text.Encoding.CodePages.dll" />
+        <File Id="FILE_SystemThreadingTasksDataflowdll"
+              Source="$(var.PowerShell.EditorFeatures.UI.TargetDir)\PowerShell.EditorFeatures.UI\System.Threading.Tasks.Dataflow.dll" />
 
       </Component>
     </DirectoryRef>

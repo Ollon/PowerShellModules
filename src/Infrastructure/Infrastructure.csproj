@@ -1,6 +1,13 @@
 ﻿<Project>
 
   <PropertyGroup>
+    <!-- Get the Visual Studio version - defaults to 10: -->
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <!-- Keep the next element all on one line: -->
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+
+  <PropertyGroup>
     <RootNamespace>PowerShell.Infrastructure</RootNamespace>
     <AssemblyName>PowerShell.Infrastructure</AssemblyName>
     <IsPowerShellProject>true</IsPowerShellProject>
@@ -33,6 +40,7 @@
     <Compile Include="Commands\NewEnumStructureCommand.cs" />
     <Compile Include="Commands\OutJsonCommand.cs" />
     <Compile Include="Commands\OutXmlCommand.cs" />
+    <Compile Include="Commands\SplitStringCommand.cs" />
     <Compile Include="Resources\Class1.cs" />
     <Compile Include="Utilities\EnumGenerator.cs" />
     <Compile Include="Utilities\EscapeStyle.cs" />
@@ -132,12 +140,109 @@
 
 
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" />
-    <PackageReference Include="Newtonsoft.Json.Schema" />
+
+    <Reference Include="Microsoft.CodeAnalysis.VisualBasic">
+      <HintPath>..\Lib\Microsoft.CodeAnalysis.VisualBasic.dll</HintPath>
+    </Reference>
+
+    <Reference Include="Microsoft.CodeAnalysis.VisualBasic.Workspaces">
+      <HintPath>..\Lib\Microsoft.CodeAnalysis.VisualBasic.Workspaces.dll</HintPath>
+    </Reference>
+
+    <Reference Include="Microsoft.CodeAnalysis.Workspaces">
+      <HintPath>..\Lib\Microsoft.CodeAnalysis.Workspaces.dll</HintPath>
+    </Reference>
+
+    <Reference Include="Microsoft.CodeAnalysis.Workspaces.Desktop">
+      <HintPath>..\Lib\Microsoft.CodeAnalysis.Workspaces.Desktop.dll</HintPath>
+    </Reference>
+
+    <Reference Include="Microsoft.Management.Infrastructure">
+      <HintPath>..\Lib\Microsoft.Management.Infrastructure.dll</HintPath>
+    </Reference>
+
+    <Reference Include="Microsoft.PowerShell.Editor">
+      <HintPath>..\Lib\Microsoft.PowerShell.Editor.dll</HintPath>
+    </Reference>
+
+    <Reference Include="Microsoft.PowerShell.EditorServices">
+      <HintPath>..\Lib\Microsoft.PowerShell.EditorServices.dll</HintPath>
+    </Reference>
+
+    <Reference Include="Microsoft.PowerShell.EditorServices.Protocol">
+      <HintPath>..\Lib\Microsoft.PowerShell.EditorServices.Protocol.dll</HintPath>
+    </Reference>
+
+    <Reference Include="Microsoft.PowerShell.GPowerShell">
+      <HintPath>..\Lib\Microsoft.PowerShell.GPowerShell.dll</HintPath>
+    </Reference>
+
+    <Reference Include="Microsoft.PowerShell.GraphicalHost">
+      <HintPath>..\Lib\Microsoft.PowerShell.GraphicalHost.dll</HintPath>
+    </Reference>
+
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\Lib\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+
+    <Reference Include="Newtonsoft.Json.Schema">
+      <HintPath>..\Lib\Newtonsoft.Json.Schema.dll</HintPath>
+    </Reference>
+
+    <Reference Include="SQLitePCLRaw.batteries_v2">
+      <HintPath>..\Lib\SQLitePCLRaw.batteries_v2.dll</HintPath>
+    </Reference>
+
+    <Reference Include="SQLitePCLRaw.core">
+      <HintPath>..\Lib\SQLitePCLRaw.core.dll</HintPath>
+    </Reference>
+
+    <Reference Include="SQLitePCLRaw.provider.e_sqlite3">
+      <HintPath>..\Lib\SQLitePCLRaw.provider.e_sqlite3.dll</HintPath>
+    </Reference>
+
+    <Reference Include="System.Collections.Immutable">
+      <HintPath>..\Lib\System.Collections.Immutable.dll</HintPath>
+    </Reference>
+
+    <Reference Include="System.Composition.AttributedModel">
+      <HintPath>..\Lib\System.Composition.AttributedModel.dll</HintPath>
+    </Reference>
+
+    <Reference Include="System.Composition.Convention">
+      <HintPath>..\Lib\System.Composition.Convention.dll</HintPath>
+    </Reference>
+
+    <Reference Include="System.Composition.Hosting">
+      <HintPath>..\Lib\System.Composition.Hosting.dll</HintPath>
+    </Reference>
+
+    <Reference Include="System.Composition.Runtime">
+      <HintPath>..\Lib\System.Composition.Runtime.dll</HintPath>
+    </Reference>
+
+    <Reference Include="System.Composition.TypedParts">
+      <HintPath>..\Lib\System.Composition.TypedParts.dll</HintPath>
+    </Reference>
 
     <Reference Include="System.DirectoryServices" />
     <Reference Include="System.DirectoryServices.AccountManagement" />
     <Reference Include="System.DirectoryServices.Protocols" />
+    <Reference Include="System.IO.Compression">
+      <HintPath>..\Lib\System.IO.Compression.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Management.Automation">
+      <HintPath>..\Lib\System.Management.Automation.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reflection.Metadata">
+      <HintPath>..\Lib\System.Reflection.Metadata.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encoding.CodePages">
+      <HintPath>..\Lib\System.Text.Encoding.CodePages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Dataflow">
+      <HintPath>..\Lib\System.Threading.Tasks.Dataflow.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 
@@ -156,4 +261,6 @@
 
 
   <Import Project="Sdk.targets" Sdk="Microsoft.NET.Sdk" />
+
+  <Import Project="$(VSToolsPath)\TextTemplating\Microsoft.TextTemplating.targets" />
 </Project>

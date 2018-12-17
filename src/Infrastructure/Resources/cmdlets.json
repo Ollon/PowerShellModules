@@ -1,6 +1,29 @@
 {
   "cmdlets": [
     {
+      "verb": "Split",
+      "noun": "String",
+      "alias": "split",
+      "paging": false,
+      "parameterSet": null,
+      "process": false,
+      "transactions": false,
+      "params": [
+        {
+          "name": "String",
+          "type": "string",
+          "firstPosition": true,
+          "valueFromPipeLine": true,
+          "valueFromPipeLineByPropertyName": true,
+          "valueFromRemainingArguments": true
+        },
+        {
+          "name": "Delimeter",
+          "type": "string"
+        }
+      ]
+    },
+    {
       "verb": "New",
       "noun": "EnumStructure",
       "alias": "genenum",
