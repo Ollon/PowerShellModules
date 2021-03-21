@@ -11,7 +11,7 @@
     <OutputPath>$(MSBuildProjectDirectory)..\..\..\bin\$(Configuration)\$(MSBuildProjectName)\</OutputPath>
     <IntermediateOutputPath>$(MSBuildProjectDirectory)..\..\..\bin\obj\$(MSBuildProjectName)\</IntermediateOutputPath>
     <DefineConstants>Debug</DefineConstants>
-    <WixTargetsPath Condition=" '$(WixTargetsPath)' == '' ">$(MSBuildExtensionsPath)\WiX Toolset\v4\wix.targets</WixTargetsPath>
+    <WixTargetsPath Condition=" '$(WixTargetsPath)' == '' ">C:\Program Files (x86)\WiX Toolset v4.0\bin\wix.targets</WixTargetsPath>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Product.wxs" />
